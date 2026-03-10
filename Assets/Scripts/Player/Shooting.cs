@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class Shooting : MonoBehaviour
 {
@@ -10,24 +11,43 @@ public class Shooting : MonoBehaviour
     private InputAction shooting;
 
     [SerializeField, DisplayWithoutEdit] private int ammo;
-    [SerializeField, DisplayWithoutEdit] private int maxDistance;
     public int pistolAmmo;
     public int shotgunAmmo;
 
-    public int pistolMaxDistance;
-    public int shotgunMaxDistance;
+    private int originalAmmo;
 
-    public string[] weapons;
+    /*
+    [SerializeField, DisplayWithoutEdit] private int maxDistance;
+    public int pistolMaxDistance;
+    public int shotgunMaxDistance;*/
+
+    public string currentWeapon;
+
+    public float bulletSpeed = 90f;
+    private bool isReloading = false;
+    
+    private bool cooldown = false;
+
+    [SerializeField] private GameObject bullet;
+    [SerializeField] float bulletLife = 3f;
+
+    private Rigidbody rb;
+
+    public int recoilForce;
 
     private void Start()
     {
-        if (weapons.Length == 1)
+        if (currentWeapon == "Pistol")
         {
-            ammo = pistolAmmo;
-            maxDistance = pistolMaxDistance;
+            Debug.Log("Pistol");
+            originalAmmo = pistolAmmo;
+            ammo = originalAmmo;
+            //maxDistance = pistolMaxDistance;
         }
         else
             return;
+
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Awake()
@@ -48,14 +68,41 @@ public class Shooting : MonoBehaviour
     private void Update()
     {
         Firing();
+        Debug.Log(isReloading);
     }
 
     private void Firing()
     {
-        if (shooting.IsPressed())
+        if (shooting.IsPressed() && !isReloading && !cooldown)
         {
+            cooldown = true;
             Debug.Log("Shooted");
+            GameObject bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
+            Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
+            bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
 
+            rb.AddForce(-gameObject.transform.right * recoilForce);
+
+            StartCoroutine(shootingCooldown());
+            ammo -= 1;
+            Destroy(bulletInst, bulletLife);
+            if (ammo <= 0)
+                StartCoroutine(ReloadWait());
         }
+    }
+
+    IEnumerator ReloadWait()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(2.5f);
+        ammo = originalAmmo;
+        isReloading = false;
+    }
+
+    IEnumerator shootingCooldown()
+    {
+        cooldown = true;
+        yield return new WaitForSeconds(0.2f);
+        cooldown = false;
     }
 }
