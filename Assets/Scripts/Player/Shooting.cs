@@ -24,9 +24,10 @@ public class Shooting : MonoBehaviour
     public string currentWeapon;
 
     public float bulletSpeed = 90f;
-    private bool isReloading = false;
-    
-    private bool cooldown = false;
+    [SerializeField, DisplayWithoutEdit] private bool isReloading = false;
+
+    [SerializeField, DisplayWithoutEdit] private bool cooldown = false;
+    [SerializeField, DisplayWithoutEdit] private bool hasShot = false;
 
     [SerializeField] private GameObject bullet;
     [SerializeField] float bulletLife = 3f;
@@ -37,6 +38,7 @@ public class Shooting : MonoBehaviour
 
     private void Start()
     {
+        // To set the starting ammo count to that of the pistol
         if (currentWeapon == "Pistol")
         {
             Debug.Log("Pistol");
@@ -44,7 +46,7 @@ public class Shooting : MonoBehaviour
             ammo = originalAmmo;
             //maxDistance = pistolMaxDistance;
         }
-        else
+        else //Just incase until a second weapon is added
             return;
 
         rb = GetComponent<Rigidbody>();
@@ -68,19 +70,25 @@ public class Shooting : MonoBehaviour
     private void Update()
     {
         Firing();
-        Debug.Log(isReloading);
+
+        //So that the player has to press the button repeatedly instead of holding it
+        if (shooting.WasReleasedThisFrame())
+            hasShot = false;
     }
 
     private void Firing()
     {
-        if (shooting.IsPressed() && !isReloading && !cooldown)
+        if (shooting.IsPressed() && !isReloading && !cooldown && !hasShot)
         {
             cooldown = true;
-            Debug.Log("Shooted");
+            hasShot = true;
+            //Debug.Log("Shooted");
+            //Instantiating the bullet that is fired
             GameObject bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
             Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
             bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
 
+            //The recoil force
             rb.AddForce(-gameObject.transform.right * recoilForce);
 
             StartCoroutine(shootingCooldown());
