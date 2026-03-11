@@ -41,25 +41,28 @@ public class Shooting : MonoBehaviour
     public int pistolDamage;
     public int shotgunDamage;
 
+    public bool pistolAcquired = false;
+    public bool shotgunAcquired = false;
+
     private void Start()
     {
-        // To set the starting ammo count to that of the pistol
-        if (currentWeapon == "Pistol")
-        {
-            Debug.Log("Pistol");
-            originalAmmo = pistolAmmo;
-            ammo = originalAmmo;
-            //maxDistance = pistolMaxDistance;
-        }
-        else //Just incase until a second weapon is added
-            return;
-
         rb = GetComponent<Rigidbody>();
     }
 
     private void Awake()
     {
         controls = new PlayerControls();
+
+        // To set the starting ammo count to that of the pistol
+        if (currentWeapon == "Pistol")
+        {
+            //Debug.Log("Pistol");
+            originalAmmo = pistolAmmo;
+            ammo = originalAmmo;
+            //maxDistance = pistolMaxDistance;
+        }
+        else //Just incase until a second weapon is added
+            return;
     }
 
     private void OnEnable()

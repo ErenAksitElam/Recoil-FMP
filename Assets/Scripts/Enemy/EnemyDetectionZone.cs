@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class EnemyDetectionZone : MonoBehaviour
 {
-    
-    private void OnCollisionStay(Collision collision)
+    public Enemy enemyScript;
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+            enemyScript.playerDetected = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            enemyScript.playerDetected = false;
     }
 }
