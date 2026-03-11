@@ -36,6 +36,11 @@ public class Shooting : MonoBehaviour
 
     public int recoilForce;
 
+    public int playerHP;
+
+    public int pistolDamage;
+    public int shotgunDamage;
+
     private void Start()
     {
         // To set the starting ammo count to that of the pistol
@@ -112,5 +117,10 @@ public class Shooting : MonoBehaviour
         cooldown = true;
         yield return new WaitForSeconds(0.2f);
         cooldown = false;
+    }
+
+    public void TakeDamage(int enemyDamage)
+    {
+        playerHP = -enemyDamage;
     }
 }
