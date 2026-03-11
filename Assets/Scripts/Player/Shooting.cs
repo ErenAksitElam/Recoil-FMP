@@ -44,6 +44,8 @@ public class Shooting : MonoBehaviour
     public bool pistolAcquired = false;
     public bool shotgunAcquired = false;
 
+    public GameObject playerWillBe;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -82,6 +84,8 @@ public class Shooting : MonoBehaviour
         //So that the player has to press the button repeatedly instead of holding it
         if (shooting.WasReleasedThisFrame())
             hasShot = false;
+
+        playerWillBe.transform.position = rb.linearVelocity + gameObject.transform.position;
     }
 
     private void Firing()

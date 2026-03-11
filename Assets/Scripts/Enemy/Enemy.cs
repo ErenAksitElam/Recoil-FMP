@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     public Transform target;
+    public Rigidbody targetRB;
+    public Shooting shooting;
     public float turn_speed;
 
     [SerializeField, DisplayWithoutEdit] public bool playerDetected;
@@ -24,6 +27,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float shotCooldown = 0.45f;
 
+    private Transform targetFinalPos;
+
     private void Awake()
     {
         ammo = originalAmmo;
@@ -31,7 +36,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        rotateTowards(target.position);
+        //targetFinalPos = new Vector3(shooting.playerWillBe.transform.);
+        rotateTowards(shooting.playerWillBe.transform.position);
 
         if (playerDetected)
         {

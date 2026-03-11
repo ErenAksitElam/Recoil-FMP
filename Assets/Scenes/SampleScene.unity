@@ -403,6 +403,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3102533842788839556, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
   m_PrefabInstance: {fileID: 4796416448920952773}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2004371632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+  m_PrefabInstance: {fileID: 4796416448920952773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5cb92e1ab8772441adc9ee779ab5058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &2004371634 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3953159581549899198, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+  m_PrefabInstance: {fileID: 4796416448920952773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4011218905894777841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -459,6 +475,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2004371631}
+    - target: {fileID: 7433619514118416796, guid: ee2f877ebe7b4824cba870d068b17c24, type: 3}
+      propertyPath: shooting
+      value: 
+      objectReference: {fileID: 2004371632}
+    - target: {fileID: 7433619514118416796, guid: ee2f877ebe7b4824cba870d068b17c24, type: 3}
+      propertyPath: targetRB
+      value: 
+      objectReference: {fileID: 2004371634}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -475,6 +499,10 @@ PrefabInstance:
     - target: {fileID: 114518278176779949, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: pistolAmmo
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3102533842788839556, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: m_LocalPosition.x

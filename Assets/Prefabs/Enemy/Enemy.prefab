@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  targetRB: {fileID: 0}
+  shooting: {fileID: 0}
   turn_speed: 10
   playerDetected: 0
   enemyAggro: 0
@@ -104,7 +106,7 @@ MonoBehaviour:
   isReloading: 0
   cooldown: 0
   bullet: {fileID: 6011969446408841123, guid: 82c8e895a1c58c444b56d5b375a7bf27, type: 3}
-  bulletLife: 3
+  bulletLife: 10
   ammo: 0
   originalAmmo: 10
   shotCooldown: 0.45
