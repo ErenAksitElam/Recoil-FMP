@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class Enemy : MonoBehaviour
 
     private Transform targetFinalPos;
 
+    public int enemyHP;
+
     private void Awake()
     {
         ammo = originalAmmo;
@@ -36,19 +39,23 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        //targetFinalPos = new Vector3(shooting.playerWillBe.transform.);
+        //Was trying to have a random accuracy system however the basic enemy tracking where the player will be feels better
+        //shooting.playerWillBe.transform.position = new Vector3(shooting.playerWillBe.transform.position.x, shooting.playerWillBe.transform.position.y, shooting.playerWillBe.transform.position.z);
         rotateTowards(shooting.playerWillBe.transform.position);
 
+        //So that the enemy still shoots at the player even if the player leaves the enemy's detection zone
         if (playerDetected)
         {
             enemyAggro = true;
         }
         EnemyShoot();
+
+        if (enemyHP <= 0)
+            Destroy(gameObject);
     }
 
     protected void rotateTowards(Vector3 to)
     {
-
         Quaternion _lookRotation = Quaternion.LookRotation((to - transform.position).normalized);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * turn_speed);
@@ -84,5 +91,10 @@ public class Enemy : MonoBehaviour
         cooldown = true;
         yield return new WaitForSeconds(shotCooldown);
         cooldown = false;
+    }
+
+    public void TakeDamage(int playerDamage)
+    {
+        enemyHP -= playerDamage;
     }
 }

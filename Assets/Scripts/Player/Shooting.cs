@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Shooting : MonoBehaviour
 {
@@ -41,10 +42,14 @@ public class Shooting : MonoBehaviour
     public int pistolDamage;
     public int shotgunDamage;
 
+    public int damage;
+
     public bool pistolAcquired = false;
     public bool shotgunAcquired = false;
 
     public GameObject playerWillBe;
+
+    public float shotCooldown;
 
     private void Start()
     {
@@ -62,6 +67,13 @@ public class Shooting : MonoBehaviour
             originalAmmo = pistolAmmo;
             ammo = originalAmmo;
             //maxDistance = pistolMaxDistance;
+        }
+        else //Just incase until a second weapon is added
+            return;
+
+        if (currentWeapon == "Pistol")
+        {
+            damage = pistolDamage;
         }
         else //Just incase until a second weapon is added
             return;
@@ -86,6 +98,9 @@ public class Shooting : MonoBehaviour
             hasShot = false;
 
         playerWillBe.transform.position = rb.linearVelocity + gameObject.transform.position;
+
+        if (playerHP <= 0)
+            SceneManager.LoadScene("Game Over");
     }
 
     private void Firing()
@@ -106,8 +121,9 @@ public class Shooting : MonoBehaviour
             StartCoroutine(shootingCooldown());
             ammo -= 1;
             Destroy(bulletInst, bulletLife);
-            if (ammo <= 0)
-                StartCoroutine(ReloadWait());
+            //Could be added for the shotgun as that would have a low amount of ammo with high knockback and damage
+            /*if (ammo <= 0)
+                StartCoroutine(ReloadWait());*/
         }
     }
 
@@ -122,12 +138,12 @@ public class Shooting : MonoBehaviour
     IEnumerator shootingCooldown()
     {
         cooldown = true;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(shotCooldown);
         cooldown = false;
     }
 
     public void TakeDamage(int enemyDamage)
     {
-        playerHP = -enemyDamage;
+        playerHP -= enemyDamage;
     }
 }
