@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public Shooting shooting;
     public float turn_speed;
 
-    [SerializeField, DisplayWithoutEdit] public bool playerDetected;
+    public bool playerDetected;
     [SerializeField, DisplayWithoutEdit] private bool enemyAggro;
 
     public float bulletSpeed = 90f;

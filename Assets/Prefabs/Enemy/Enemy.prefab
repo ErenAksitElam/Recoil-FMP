@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5089706174047217611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.02, y: 0.19, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.85858, y: 1.85858, z: 1.85858}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -97,9 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9738127115a4b4aa1a02712671ad54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  targetRB: {fileID: 0}
-  shooting: {fileID: 0}
+  target: {fileID: 3102533842788839556, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+  targetRB: {fileID: 3953159581549899198, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+  shooting: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
   turn_speed: 10
   playerDetected: 0
   enemyAggro: 0
