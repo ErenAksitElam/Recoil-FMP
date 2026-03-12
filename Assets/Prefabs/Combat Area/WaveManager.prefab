@@ -55,3 +55,4 @@ MonoBehaviour:
   combatArea: {fileID: 0}
   playerEntered: 0
   playerAllowedToLeave: 0
+  closeGate: 0
