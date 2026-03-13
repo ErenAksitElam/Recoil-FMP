@@ -97,20 +97,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9738127115a4b4aa1a02712671ad54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 3102533842788839556, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
-  targetRB: {fileID: 3953159581549899198, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
-  shooting: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
   turn_speed: 10
   playerDetected: 0
   enemyAggro: 0
-  bulletSpeed: 550
+  bulletSpeed: 500
   isReloading: 0
   cooldown: 0
   bullet: {fileID: 6011969446408841123, guid: 82c8e895a1c58c444b56d5b375a7bf27, type: 3}
   bulletLife: 12
   ammo: 0
-  originalAmmo: 10
-  shotCooldown: 0.45
+  originalAmmo: 5
+  shotCooldown: 0.5
   enemyHP: 3
 --- !u!1 &5877169121263250271
 GameObject:

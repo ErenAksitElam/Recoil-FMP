@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -24,7 +27,12 @@ public class WaveManager : MonoBehaviour
     public bool playerEntered;
     public bool playerAllowedToLeave;
 
-    [SerializeField, DisplayWithoutEdit] private bool waveEnded;
+    [SerializeField, DisplayWithoutEdit] private bool waveEnded = false;
+
+    [SerializeField, DisplayWithoutEdit] private bool waveCooldown;
+    public float waveCooldownTime;
+
+    [DisplayWithoutEdit]  public List<GameObject> instEnemies = new();
 
     private void Awake()
     {
@@ -34,8 +42,6 @@ public class WaveManager : MonoBehaviour
         //The entrance gate will be open at the beginning and the exit gate closed.
         entranceGateAnimator.SetBool("CloseGate", false);
         exitGateAnimator.SetBool("CloseGate", true);
-
-        StartWave();
     }
     private void Update()
     {
@@ -52,6 +58,18 @@ public class WaveManager : MonoBehaviour
             entranceGateAnimator.SetBool("CloseGate", false);
             exitGateAnimator.SetBool("CloseGate", false);
         }
+
+        if (waveEnded && !waveCooldown)
+        {
+            currentWave += 1;
+            if (currentWave > numberOfWaves)
+                playerAllowedToLeave = true;
+            else
+                StartWave();
+        }
+
+        if (instEnemies.Count <= 0)
+            waveEnded = true;
             
     }
 
@@ -64,7 +82,15 @@ public class WaveManager : MonoBehaviour
         else if (currentWave == 4) waveLocations = wave4Locations;
         foreach (GameObject i in waveLocations)
         {
-            Instantiate(enemy, i.transform);
+            //Instantiate(enemy, i.transform);
+            instEnemies.Add(Instantiate(enemy, i.transform) as GameObject);
         }
+    }
+
+    IEnumerator waveWait()
+    {
+        waveCooldown = true;
+        yield return new WaitForSeconds(waveCooldownTime);
+        waveCooldown = false;
     }
 }

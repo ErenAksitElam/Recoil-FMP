@@ -7,9 +7,10 @@ using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform target;
-    public Rigidbody targetRB;
-    public Shooting shooting;
+    private GameObject player;
+    private Transform target;
+    private Rigidbody targetRB;
+    private Shooting shooting;
     public float turn_speed;
 
     public bool playerDetected;
@@ -32,9 +33,18 @@ public class Enemy : MonoBehaviour
 
     public int enemyHP;
 
+    private WaveManager waveManager;
+
     private void Awake()
     {
         ammo = originalAmmo;
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        target = player.transform;
+        targetRB = target.GetComponent<Rigidbody>();
+        shooting = targetRB.GetComponent<Shooting>();
+
+        waveManager = WaveManager.FindAnyObjectByType<WaveManager>();
     }
 
     private void Update()
@@ -51,6 +61,7 @@ public class Enemy : MonoBehaviour
         EnemyShoot();
 
         if (enemyHP <= 0)
+            //waveManager.instEnemies.RemoveAt(0);
             Destroy(gameObject);
     }
 
