@@ -45,19 +45,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5089706174047217611, guid: ee2f877ebe7b4824cba870d068b17c24, type: 3}
-  numberOfWaves: 0
+  numberOfWaves: 4
   currentWave: 1
   wave1Locations:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  wave2Locations: []
-  wave3Locations: []
-  wave4Locations: []
+  wave2Locations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  wave3Locations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  wave4Locations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   entranceGate: {fileID: 0}
   exitGate: {fileID: 0}
   combatArea: {fileID: 0}
   playerEntered: 0
   playerAllowedToLeave: 0
   waveEnded: 0
+  waveCooldown: 0
+  waveCooldownTime: 0.25
+  instEnemies: []

@@ -68,7 +68,7 @@ public class WaveManager : MonoBehaviour
                 StartWave();
         }
 
-        if (instEnemies.Count <= 0)
+        if (instEnemies.IsUnityNull() || instEnemies.Count == 0)
             waveEnded = true;
             
     }
