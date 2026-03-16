@@ -595,10 +595,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit Gate Parent
       objectReference: {fileID: 0}
-    - target: {fileID: 2674827457480728500, guid: 81eaa78f6243f0e489203f1a6874aa41, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5897360847336328575, guid: 81eaa78f6243f0e489203f1a6874aa41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.99
@@ -656,10 +652,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Area
       objectReference: {fileID: 0}
-    - target: {fileID: 60998442558465506, guid: 22a3e65dc931a7243a681e70b1fd4bcd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1227020335671155031, guid: 22a3e65dc931a7243a681e70b1fd4bcd, type: 3}
       propertyPath: waveManager
       value: 
@@ -702,6 +694,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3754532455153113274, guid: 22a3e65dc931a7243a681e70b1fd4bcd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684209682895348017, guid: 22a3e65dc931a7243a681e70b1fd4bcd, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -843,10 +839,6 @@ PrefabInstance:
     - target: {fileID: 694159623054986648, guid: 523b14d69681ad74583d9a7a91717e4d, type: 3}
       propertyPath: m_Name
       value: Enter Gate Parent
-      objectReference: {fileID: 0}
-    - target: {fileID: 694159623054986648, guid: 523b14d69681ad74583d9a7a91717e4d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6992014392628982435, guid: 523b14d69681ad74583d9a7a91717e4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1006,10 +998,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8669815615922284827, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1142,10 +1130,6 @@ PrefabInstance:
     - target: {fileID: 5216704356632799863, guid: eacdab74c455fa64081d832f0e17885b, type: 3}
       propertyPath: m_Name
       value: WaveManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216704356632799863, guid: eacdab74c455fa64081d832f0e17885b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6567886921548419284}
   m_Layer: 0
   m_Name: Exit Gate
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

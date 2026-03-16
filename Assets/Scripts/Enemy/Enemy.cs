@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour
 
     private WaveManager waveManager;
 
+    public int listIndex;
+
     private void Awake()
     {
         ammo = originalAmmo;
@@ -61,8 +63,11 @@ public class Enemy : MonoBehaviour
         EnemyShoot();
 
         if (enemyHP <= 0)
+        {
             //waveManager.instEnemies.RemoveAt(0);
+            waveManager.enemyCount += 1;
             Destroy(gameObject);
+        }
     }
 
     protected void rotateTowards(Vector3 to)

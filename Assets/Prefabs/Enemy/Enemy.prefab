@@ -109,6 +109,7 @@ MonoBehaviour:
   originalAmmo: 5
   shotCooldown: 0.5
   enemyHP: 3
+  listIndex: 0
 --- !u!1 &5877169121263250271
 GameObject:
   m_ObjectHideFlags: 0

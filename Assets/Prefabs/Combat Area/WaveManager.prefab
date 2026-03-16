@@ -76,3 +76,4 @@ MonoBehaviour:
   waveCooldown: 0
   waveCooldownTime: 0.25
   instEnemies: []
+  enemyCount: 0

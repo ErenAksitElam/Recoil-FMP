@@ -12,5 +12,9 @@ public class EnemyBullet : MonoBehaviour
             player.TakeDamage(1);
             Destroy(gameObject);
         }
+        if (other.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

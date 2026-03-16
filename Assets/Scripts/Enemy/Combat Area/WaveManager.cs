@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -29,10 +30,12 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField, DisplayWithoutEdit] private bool waveEnded = false;
 
-    [SerializeField, DisplayWithoutEdit] private bool waveCooldown;
+    //[SerializeField, DisplayWithoutEdit] private bool waveCooldown;
     public float waveCooldownTime;
 
     [DisplayWithoutEdit]  public List<GameObject> instEnemies = new();
+
+    public int enemyCount;
 
     private void Awake()
     {
@@ -42,6 +45,8 @@ public class WaveManager : MonoBehaviour
         //The entrance gate will be open at the beginning and the exit gate closed.
         entranceGateAnimator.SetBool("CloseGate", false);
         exitGateAnimator.SetBool("CloseGate", true);
+
+        //StartWave();
     }
     private void Update()
     {
@@ -50,6 +55,8 @@ public class WaveManager : MonoBehaviour
         {
             entranceGateAnimator.SetBool("CloseGate", true);
             exitGateAnimator.SetBool("CloseGate", true);
+
+            StartWave();
         }
             
         //Once the player defeats the waves they are able to leave
@@ -59,8 +66,10 @@ public class WaveManager : MonoBehaviour
             exitGateAnimator.SetBool("CloseGate", false);
         }
 
-        if (waveEnded && !waveCooldown)
+        //Spawn a new wave once the old one is finished
+        if (waveEnded)
         {
+            waveEnded = false;
             currentWave += 1;
             if (currentWave > numberOfWaves)
                 playerAllowedToLeave = true;
@@ -68,13 +77,13 @@ public class WaveManager : MonoBehaviour
                 StartWave();
         }
 
-        if (instEnemies.IsUnityNull() || instEnemies.Count == 0)
+        if (enemyCount >= waveLocations.Length)
             waveEnded = true;
-            
     }
 
     void StartWave()
     {
+        //waveCooldown = true;
         waveEnded = false;
         if (currentWave == 1) waveLocations = wave1Locations;
         else if (currentWave == 2) waveLocations = wave2Locations;
@@ -87,10 +96,11 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    /*
     IEnumerator waveWait()
     {
         waveCooldown = true;
         yield return new WaitForSeconds(waveCooldownTime);
         waveCooldown = false;
-    }
+    }*/
 }
