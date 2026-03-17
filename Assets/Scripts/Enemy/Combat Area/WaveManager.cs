@@ -37,6 +37,8 @@ public class WaveManager : MonoBehaviour
 
     public int enemyCount;
 
+    private bool firstStart = true;
+
     private void Awake()
     {
         entranceGateAnimator = entranceGate.GetComponent<Animator>();
@@ -56,7 +58,11 @@ public class WaveManager : MonoBehaviour
             entranceGateAnimator.SetBool("CloseGate", true);
             exitGateAnimator.SetBool("CloseGate", true);
 
-            StartWave();
+            if (firstStart)
+            {
+                StartWave();
+                firstStart = false;
+            }
         }
             
         //Once the player defeats the waves they are able to leave

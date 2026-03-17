@@ -51,6 +51,8 @@ public class Shooting : MonoBehaviour
 
     public float shotCooldown;
 
+    [SerializeField, DisplayWithoutEdit] private bool hasWeapon;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
