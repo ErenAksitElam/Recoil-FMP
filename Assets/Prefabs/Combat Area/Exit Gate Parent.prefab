@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6567886921548419284}
   m_Layer: 0
   m_Name: Exit Gate
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 2531220853167680539}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 8.3448}
+  m_LocalPosition: {x: 0, y: 1.3885, z: 0}
+  m_LocalScale: {x: 1, y: 2.777006, z: 8.3448}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5897360847336328575}
@@ -117,9 +117,9 @@ Animator:
   m_PrefabInstance: {fileID: 108826227575056396}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2531220853167680539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 94ed48e87d378314f865cd8a5dc7436e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 51bc4d5fcb1ad744b928d5839f4ef778, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

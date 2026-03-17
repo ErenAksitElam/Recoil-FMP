@@ -49,6 +49,8 @@ public class WaveManager : MonoBehaviour
         exitGateAnimator.SetBool("CloseGate", true);
 
         //StartWave();
+
+        currentWave = 1;
     }
     private void Update()
     {
