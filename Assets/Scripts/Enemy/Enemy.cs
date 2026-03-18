@@ -37,6 +37,10 @@ public class Enemy : MonoBehaviour
 
     public int listIndex;
 
+    Vector3 bulletDirection;
+
+    private Quaternion lookRotation;
+
     private void Awake()
     {
         ammo = originalAmmo;
@@ -70,11 +74,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected void rotateTowards(Vector3 to)
+    private void rotateTowards(Vector3 to)
     {
-        Quaternion _lookRotation = Quaternion.LookRotation((to - transform.position).normalized);
+        lookRotation = Quaternion.LookRotation((to - transform.position).normalized);
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * turn_speed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turn_speed);
     }
 
     void EnemyShoot()
@@ -85,6 +89,7 @@ public class Enemy : MonoBehaviour
             GameObject bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
             Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
             bulletInstRB.AddForce(gameObject.transform.forward * bulletSpeed);
+            bulletInst.transform.rotation = Quaternion.Inverse(lookRotation);
 
             StartCoroutine(shootingCooldown());
             ammo -= 1;
