@@ -108,7 +108,7 @@ MonoBehaviour:
   ammo: 0
   originalAmmo: 5
   shotCooldown: 0.5
-  enemyHP: 3
+  enemyHP: 1
   listIndex: 0
 --- !u!1 &5877169121263250271
 GameObject:
@@ -261,7 +261,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.053, y: 1.053, z: 1.053}
+  m_LocalScale: {x: 1.8036832, y: 1.8036832, z: 1.8036832}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7045989318968883655}
