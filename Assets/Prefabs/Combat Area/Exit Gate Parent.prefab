@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6567886921548419284}
   m_Layer: 0
   m_Name: Exit Gate
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.3885, z: 0}
-  m_LocalScale: {x: 1, y: 2.777006, z: 8.3448}
+  m_LocalScale: {x: 1, y: 2.777, z: 8.345}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5897360847336328575}
