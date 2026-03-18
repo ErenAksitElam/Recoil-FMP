@@ -45,7 +45,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114518278176779949}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a09128cf189ee574f973e20e2e61f5cc, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
   shotgunAcquired: 0
   playerWillBe: {fileID: 1394905092199925835}
   shotCooldown: 0.25
+  hasWeapon: 0
 --- !u!1 &1253623596913626355
 GameObject:
   m_ObjectHideFlags: 0
