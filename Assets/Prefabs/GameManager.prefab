@@ -57,3 +57,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4813bc20cb932a4196ce42aa60bd7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFinished: 0
+  timerActive: 0
+  timerText: {fileID: 0}
+  rankingMenu: {fileID: 0}
+  S: {fileID: 0}
+  A: {fileID: 0}
+  B: {fileID: 0}
+  C: {fileID: 0}
+  D: {fileID: 0}
+  STime: 15
+  ATime: 20
+  BTime: 25
+  CTime: 30
+  DTime: 40
+  rankingMenuTimer: {fileID: 0}

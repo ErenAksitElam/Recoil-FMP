@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
 
     private Quaternion lookRotation;
 
+    private GameObject bulletInst;
+
     private void Awake()
     {
         ammo = originalAmmo;
@@ -86,10 +88,10 @@ public class Enemy : MonoBehaviour
         if (enemyAggro && !isReloading && !cooldown)
         {
             cooldown = true;
-            GameObject bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
+            bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
             Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
             bulletInstRB.AddForce(gameObject.transform.forward * bulletSpeed);
-            bulletInst.transform.rotation = Quaternion.Inverse(lookRotation);
+            bulletInst.transform.rotation = lookRotation;
 
             StartCoroutine(shootingCooldown());
             ammo -= 1;

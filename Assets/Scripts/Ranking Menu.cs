@@ -1,10 +1,38 @@
 using UnityEngine;
 using TMPro;
-
+using System;
+using System.Runtime.CompilerServices;
 public class RankingMenu : MonoBehaviour
 {
     public bool playerFinished;
     private bool firstTime = true;
+
+    public bool timerActive;
+    private float currentTime;
+    public TMP_Text timerText;
+
+    public GameObject rankingMenu;
+
+    public GameObject S;
+    public GameObject A;
+    public GameObject B;
+    public GameObject C;
+    public GameObject D;
+
+    public float STime;
+    public float ATime;
+    public float BTime;
+    public float CTime;
+    public float DTime;
+
+    public TMP_Text rankingMenuTimer;
+
+    private void Start()
+    {
+        currentTime = 0;
+
+        timerActive = true;
+    }
 
     void Update()
     {
@@ -13,17 +41,71 @@ public class RankingMenu : MonoBehaviour
             OpenRankingMenu();
         }
 
+        if (timerActive)
+        {
+            currentTime = currentTime + Time.deltaTime;
+        }
+        TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        //text.text = currentTime.ToString();
+        timerText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString() + ":" + time.Milliseconds.ToString();
+
+        Debug.Log(currentTime);
+
     }
 
     void OpenRankingMenu()
     {
         Time.timeScale = 0f;
+        timerText.transform.gameObject.SetActive(false);
+        rankingMenu.SetActive(true);
+
+        TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        rankingMenuTimer.text = time.Minutes.ToString() + ":" + time.Seconds.ToString() + ":" + time.Milliseconds.ToString();
+
+        #region CurrentTime < XTime
+        if (currentTime < STime)
+        {
+            TurnOffAllLetters();
+            S.SetActive(true);
+        }
+        else if (currentTime < ATime)
+        {
+            TurnOffAllLetters();
+            A.SetActive(true);
+        }
+        else if (currentTime < BTime)
+        {
+            TurnOffAllLetters();
+            B.SetActive(true);
+        }
+        else if (currentTime < CTime)
+        {
+            TurnOffAllLetters();
+            C.SetActive(true);
+        }
+        else
+        {
+            TurnOffAllLetters();
+            D.SetActive(true);
+        }
+        #endregion
     }
 
-    //https://medium.com/@eveciana21/creating-a-stopwatch-timer-in-unity-f4dff748030d
-    //https://github.com/LeiQiaoZhi/Easy-Text-Effects-for-Unity
+    public void StartTimer()
+    {
+        timerActive = true;
+    }
+    private void StopTimer()
+    {
+        timerActive = false;
+    }
 
-    //Ramblings of a madman
-    //For the dangling I can find when the mouse is in a certain area ie on the ui element and detect it's position compared to the objects position
-    //then rotate the object and move it based on time.deltatime and a pivot point so it kinda looks like it's dangling from the ceiling
+    public void TurnOffAllLetters()
+    {
+        S.SetActive(false);
+        A.SetActive(false);
+        B.SetActive(false);
+        C.SetActive(false);
+        D.SetActive(false);
+    }
 }
