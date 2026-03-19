@@ -43,6 +43,8 @@ public class Enemy : MonoBehaviour
 
     private GameObject bulletInst;
 
+    public GameObject shotPos;
+
     private void Awake()
     {
         ammo = originalAmmo;
@@ -88,7 +90,8 @@ public class Enemy : MonoBehaviour
         if (enemyAggro && !isReloading && !cooldown)
         {
             cooldown = true;
-            bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
+            //bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
+            bulletInst = Instantiate(bullet, shotPos.transform.position, Quaternion.identity);
             Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
             bulletInstRB.AddForce(gameObject.transform.forward * bulletSpeed);
             bulletInst.transform.rotation = lookRotation;

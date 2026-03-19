@@ -116,6 +116,7 @@ public class Shooting : MonoBehaviour
             GameObject bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
             Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
             bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
+            bulletInst.transform.rotation = gameObject.transform.rotation;
 
             //The recoil force
             rb.AddForce(-gameObject.transform.right * recoilForce);
