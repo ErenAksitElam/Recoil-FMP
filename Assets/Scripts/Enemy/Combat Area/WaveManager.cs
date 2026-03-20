@@ -51,7 +51,7 @@ public class WaveManager : MonoBehaviour
         //StartWave();
 
         currentWave = 1;
-    }
+}
     private void Update()
     {
         //The entrance gate closes behind the player once they enter the combat area

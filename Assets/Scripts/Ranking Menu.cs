@@ -49,7 +49,7 @@ public class RankingMenu : MonoBehaviour
         //text.text = currentTime.ToString();
         timerText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString() + ":" + time.Milliseconds.ToString();
 
-        Debug.Log(currentTime);
+        //Debug.Log(currentTime);
 
     }
 

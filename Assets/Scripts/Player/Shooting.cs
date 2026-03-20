@@ -53,6 +53,8 @@ public class Shooting : MonoBehaviour
 
     [SerializeField, DisplayWithoutEdit] private bool hasWeapon;
 
+    private bool onGround;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -103,6 +105,14 @@ public class Shooting : MonoBehaviour
 
         if (playerHP <= 0)
             SceneManager.LoadScene("Game Over");
+
+        LayerMask groundLayer = LayerMask.NameToLayer("Ground");
+        bool onGround = Physics.Raycast(transform.position, Vector3.down, 1000, groundLayer);
+
+        if (onGround)
+        {
+            TakeDamage(500);
+        }
     }
 
     private void Firing()
