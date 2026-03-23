@@ -27,6 +27,13 @@ public class RankingMenu : MonoBehaviour
 
     public TMP_Text rankingMenuTimer;
 
+    private Shooting player;
+
+    private void Awake()
+    {
+        player = FindFirstObjectByType<Shooting>();
+    }
+
     private void Start()
     {
         currentTime = 0;
@@ -55,7 +62,11 @@ public class RankingMenu : MonoBehaviour
 
     void OpenRankingMenu()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        player.gameObject.GetComponent<LookTowardsMouse>().enabled = false;
+        player.shootingDisabled = true;
+        timerActive = false;
+
         timerText.transform.gameObject.SetActive(false);
         rankingMenu.SetActive(true);
 

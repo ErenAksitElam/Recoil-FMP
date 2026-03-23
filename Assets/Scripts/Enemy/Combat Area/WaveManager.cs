@@ -17,8 +17,8 @@ public class WaveManager : MonoBehaviour
 
     private GameObject[] waveLocations;
 
-    public GameObject entranceGate;
-    public GameObject exitGate;
+    public GameObject[] entranceGates;
+    public GameObject[] exitGates;
 
     private Animator entranceGateAnimator;
     private Animator exitGateAnimator;
@@ -41,12 +41,17 @@ public class WaveManager : MonoBehaviour
 
     private void Awake()
     {
-        entranceGateAnimator = entranceGate.GetComponent<Animator>();
-        exitGateAnimator = exitGate.GetComponent<Animator>();
-
         //The entrance gate will be open at the beginning and the exit gate closed.
-        entranceGateAnimator.SetBool("CloseGate", false);
-        exitGateAnimator.SetBool("CloseGate", true);
+        foreach (GameObject i in entranceGates)
+        {
+            entranceGateAnimator = i.GetComponent<Animator>();
+            entranceGateAnimator.SetBool("CloseGate", false);
+        }
+        foreach (GameObject i in exitGates)
+        {
+            exitGateAnimator = i.GetComponent<Animator>();
+            exitGateAnimator.SetBool("CloseGate", true);
+        }
 
         //StartWave();
 
@@ -57,8 +62,16 @@ public class WaveManager : MonoBehaviour
         //The entrance gate closes behind the player once they enter the combat area
         if (playerEntered && !playerAllowedToLeave)
         {
-            entranceGateAnimator.SetBool("CloseGate", true);
-            exitGateAnimator.SetBool("CloseGate", true);
+            foreach (GameObject i in entranceGates)
+            {
+                entranceGateAnimator = i.GetComponent<Animator>();
+                entranceGateAnimator.SetBool("CloseGate", true);
+            }
+            foreach (GameObject i in exitGates)
+            {
+                exitGateAnimator = i.GetComponent<Animator>();
+                exitGateAnimator.SetBool("CloseGate", true);
+            }
 
             if (firstStart)
             {
@@ -70,8 +83,16 @@ public class WaveManager : MonoBehaviour
         //Once the player defeats the waves they are able to leave
         if (playerAllowedToLeave)
         {
-            entranceGateAnimator.SetBool("CloseGate", false);
-            exitGateAnimator.SetBool("CloseGate", false);
+            foreach (GameObject i in entranceGates)
+            {
+                entranceGateAnimator = i.GetComponent<Animator>();
+                entranceGateAnimator.SetBool("CloseGate", false);
+            }
+            foreach (GameObject i in exitGates)
+            {
+                exitGateAnimator = i.GetComponent<Animator>();
+                exitGateAnimator.SetBool("CloseGate", false);
+            }
         }
 
         //Spawn a new wave once the old one is finished
@@ -79,6 +100,7 @@ public class WaveManager : MonoBehaviour
         {
             waveEnded = false;
             currentWave += 1;
+            enemyCount = 0;
             if (currentWave > numberOfWaves)
                 playerAllowedToLeave = true;
             else

@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &9874079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4561063853420559879, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+  m_PrefabInstance: {fileID: 843413469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &18913253
 GameObject:
   m_ObjectHideFlags: 0
@@ -4717,6 +4722,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: exitGates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: 'exitGates.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1070867714}
+    - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: entranceGates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: 'entranceGates.Array.data[0]'
+      value: 
+      objectReference: {fileID: 9874079}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 317486753525289172, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
@@ -5609,6 +5630,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d8ec30abdc4b8418b5068440e49ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1070867714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1226433298948502683, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+  m_PrefabInstance: {fileID: 843413469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1079258112
 GameObject:
   m_ObjectHideFlags: 0
@@ -11108,6 +11134,18 @@ PrefabInstance:
     - target: {fileID: 114518278176779949, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: bulletSpeed
+      value: 1250
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: recoilForce
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: shotCooldown
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 3102533842788839556, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: m_LocalPosition.x

@@ -51,9 +51,9 @@ public class Shooting : MonoBehaviour
 
     public float shotCooldown;
 
-    [SerializeField, DisplayWithoutEdit] private bool hasWeapon;
+    [DisplayWithoutEdit] public bool shootingDisabled = false;
 
-    private bool onGround;
+    [SerializeField, DisplayWithoutEdit] private bool hasWeapon;
 
     private void Start()
     {
@@ -81,6 +81,8 @@ public class Shooting : MonoBehaviour
         }
         else //Just incase until a second weapon is added
             return;
+
+        shootingDisabled = false;
     }
 
     private void OnEnable()
@@ -108,16 +110,11 @@ public class Shooting : MonoBehaviour
 
         LayerMask groundLayer = LayerMask.NameToLayer("Ground");
         bool onGround = Physics.Raycast(transform.position, Vector3.down, 1000, groundLayer);
-
-        if (onGround)
-        {
-            TakeDamage(500);
-        }
     }
 
     private void Firing()
     {
-        if (shooting.IsPressed() && !isReloading && !cooldown && !hasShot)
+        if (shooting.IsPressed() && !isReloading && !cooldown && !hasShot && !shootingDisabled)
         {
             cooldown = true;
             hasShot = true;
