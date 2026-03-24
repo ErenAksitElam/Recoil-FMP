@@ -10,6 +10,7 @@ public class Shooting : MonoBehaviour
 
     public PlayerControls controls;
     private InputAction shooting;
+    private InputAction restart;
 
     [SerializeField, DisplayWithoutEdit] private int ammo;
     public int pistolAmmo;
@@ -89,11 +90,16 @@ public class Shooting : MonoBehaviour
     {
         shooting = controls.Player.Shooting;
         shooting.Enable();
+
+        restart = controls.Player.Restart;
+        restart.Enable();
     }
     
     private void OnDisable()
     {
         shooting.Disable();
+
+        restart.Disable();
     }
     private void Update()
     {
@@ -110,6 +116,11 @@ public class Shooting : MonoBehaviour
 
         LayerMask groundLayer = LayerMask.NameToLayer("Ground");
         bool onGround = Physics.Raycast(transform.position, Vector3.down, 1000, groundLayer);
+
+        if (restart.IsPressed())
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     private void Firing()
