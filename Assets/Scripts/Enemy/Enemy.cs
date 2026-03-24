@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
 
     public int enemyHP;
 
+    private GameObject waveManagerObject;
     private WaveManager waveManager;
 
     public int listIndex;
@@ -54,7 +55,7 @@ public class Enemy : MonoBehaviour
         targetRB = target.GetComponent<Rigidbody>();
         shooting = targetRB.GetComponent<Shooting>();
 
-        waveManager = WaveManager.FindAnyObjectByType<WaveManager>();
+        waveManager = gameObject.transform.root.GetComponentInChildren<WaveManager>();
     }
 
     private void Update()
