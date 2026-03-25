@@ -11,6 +11,7 @@ public class Shooting : MonoBehaviour
     public PlayerControls controls;
     private InputAction shooting;
     private InputAction restart;
+    private InputAction swap;
 
     [SerializeField, DisplayWithoutEdit] private int ammo;
     public int pistolAmmo;
@@ -56,6 +57,10 @@ public class Shooting : MonoBehaviour
 
     [SerializeField, DisplayWithoutEdit] private bool hasWeapon;
 
+    private bool hasSwapped;
+
+    private GameObject bulletInst;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -65,6 +70,7 @@ public class Shooting : MonoBehaviour
     {
         controls = new PlayerControls();
 
+        /*
         // To set the starting ammo count to that of the pistol
         if (currentWeapon == "Pistol")
         {
@@ -75,13 +81,16 @@ public class Shooting : MonoBehaviour
         }
         else //Just incase until a second weapon is added
             return;
+        */
 
         if (currentWeapon == "Pistol")
         {
             damage = pistolDamage;
         }
-        else //Just incase until a second weapon is added
-            return;
+        else if (currentWeapon == "Shotgun")
+        {
+            damage = shotgunDamage;
+        }
 
         shootingDisabled = false;
     }
@@ -93,6 +102,9 @@ public class Shooting : MonoBehaviour
 
         restart = controls.Player.Restart;
         restart.Enable();
+
+        swap = controls.Player.Swap;
+        swap.Enable();
     }
     
     private void OnDisable()
@@ -100,6 +112,8 @@ public class Shooting : MonoBehaviour
         shooting.Disable();
 
         restart.Disable();
+
+        swap.Disable();
     }
     private void Update()
     {
@@ -108,6 +122,8 @@ public class Shooting : MonoBehaviour
         //So that the player has to press the button repeatedly instead of holding it
         if (shooting.WasReleasedThisFrame())
             hasShot = false;
+        if (swap.WasReleasedThisFrame())
+            hasSwapped = false;
 
         playerWillBe.transform.position = rb.linearVelocity + gameObject.transform.position;
 
@@ -121,6 +137,24 @@ public class Shooting : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        if (swap.IsPressed() && shotgunAcquired && !hasSwapped)
+        {
+            if (currentWeapon == "Pistol")
+            {
+                Debug.Log("Swapped to Shotgun");
+                currentWeapon = "Shotgun";
+                damage = shotgunDamage;
+                hasSwapped = true;
+            }
+            else if (currentWeapon == "Shotgun")
+            {
+                Debug.Log("Swapped to Pistol");
+                currentWeapon = "Pistol";
+                damage = pistolDamage;
+                hasSwapped = true;
+            }
+        }
     }
 
     private void Firing()
@@ -131,10 +165,22 @@ public class Shooting : MonoBehaviour
             hasShot = true;
             //Debug.Log("Shooted");
             //Instantiating the bullet that is fired
-            GameObject bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
-            Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
-            bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
-            bulletInst.transform.rotation = gameObject.transform.rotation;
+            if (currentWeapon == "Pistol")
+            {
+
+                bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
+                Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
+                bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
+                bulletInst.transform.rotation = gameObject.transform.rotation;
+            }
+            else if (currentWeapon == "Shotgun")
+            {
+
+                bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
+                Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
+                bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
+                bulletInst.transform.rotation = gameObject.transform.rotation;
+            }
 
             //The recoil force
             rb.AddForce(-gameObject.transform.right * recoilForce);
