@@ -61,6 +61,10 @@ public class Shooting : MonoBehaviour
 
     private GameObject bulletInst;
 
+    public GameObject HP1;
+    public GameObject HP2;
+    public GameObject HP3;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -128,7 +132,10 @@ public class Shooting : MonoBehaviour
         playerWillBe.transform.position = rb.linearVelocity + gameObject.transform.position;
 
         if (playerHP <= 0)
+        {
+            HP2.SetActive(false);
             SceneManager.LoadScene("Game Over");
+        }   
 
         LayerMask groundLayer = LayerMask.NameToLayer("Ground");
         bool onGround = Physics.Raycast(transform.position, Vector3.down, 1000, groundLayer);
@@ -212,5 +219,13 @@ public class Shooting : MonoBehaviour
     public void TakeDamage(int enemyDamage)
     {
         playerHP -= enemyDamage;
+        if (playerHP == 2)
+        {
+            HP3.SetActive(false);
+        }
+        if (playerHP == 1)
+        {
+            HP2.SetActive(false);
+        }
     }
 }
