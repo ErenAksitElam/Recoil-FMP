@@ -33,6 +33,7 @@ public class Shooting : MonoBehaviour
     [SerializeField, DisplayWithoutEdit] private bool hasShot = false;
 
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject shotgunBullet;
     [SerializeField] float bulletLife = 3f;
 
     private Rigidbody rb;
@@ -64,6 +65,12 @@ public class Shooting : MonoBehaviour
     public GameObject HP1;
     public GameObject HP2;
     public GameObject HP3;
+
+    public int bulletAmount = 10;
+    public float startAngle = 90f; // Starting Angle
+    public float endAngle = 270f; // Ending Angle
+
+    public GameObject[] shotgunPoints;
 
     private void Start()
     {
@@ -182,11 +189,32 @@ public class Shooting : MonoBehaviour
             }
             else if (currentWeapon == "Shotgun")
             {
-
+                /*
                 bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
                 Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
                 bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
                 bulletInst.transform.rotation = gameObject.transform.rotation;
+                */
+
+                float angleStep = (endAngle - startAngle) / bulletAmount;
+                float angle = startAngle;
+                for (int i = 0; i < bulletAmount; i++)
+                {
+                    float bulDirY = transform.position.y + Mathf.Sin(angle * Mathf.Deg2Rad);
+
+                    bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
+
+                    bulletInst.transform.position = transform.position;
+                    
+                    //bulletInst.transform.rotation = gameObject.transform.rotation;
+                    //bulletInst.transform.rotation = Quaternion.identity;
+                    Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
+                    
+                    //bulletInst.transform.rotation = new Quaternion(transform.rotation.x, bulDirY, transform.rotation.z, transform.rotation.w);
+
+                    bulletInstRB.AddForce(bulletInst.transform.right * bulletSpeed);
+                    angle += angleStep;
+                }
             }
 
             //The recoil force
