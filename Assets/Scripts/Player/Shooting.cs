@@ -70,8 +70,6 @@ public class Shooting : MonoBehaviour
     public float startAngle = 90f; // Starting Angle
     public float endAngle = 270f; // Ending Angle
 
-    public GameObject[] shotgunPoints;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -200,17 +198,19 @@ public class Shooting : MonoBehaviour
                 float angle = startAngle;
                 for (int i = 0; i < bulletAmount; i++)
                 {
-                    float bulDirY = transform.position.y + Mathf.Sin(angle * Mathf.Deg2Rad);
+                    
+                    //float bulDirY = transform.position.y + Mathf.Sin(angle * Mathf.Deg2Rad);
+                    float bulDirY = (gameObject.transform.eulerAngles.y + angle);
+                    //Debug.Log(bulDirY);
 
-                    bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
+                    bulletInst = Instantiate(bullet, transform.position, Quaternion.Euler(transform.eulerAngles.x, -bulDirY, transform.eulerAngles.z));
 
                     bulletInst.transform.position = transform.position;
-                    
-                    //bulletInst.transform.rotation = gameObject.transform.rotation;
-                    //bulletInst.transform.rotation = Quaternion.identity;
+
                     Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
                     
                     //bulletInst.transform.rotation = new Quaternion(transform.rotation.x, bulDirY, transform.rotation.z, transform.rotation.w);
+                    bulletInst.transform.eulerAngles = new Vector3(transform.eulerAngles.x, bulDirY, transform.eulerAngles.z);
 
                     bulletInstRB.AddForce(bulletInst.transform.right * bulletSpeed);
                     angle += angleStep;
