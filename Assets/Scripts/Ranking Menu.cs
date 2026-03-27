@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.Runtime.CompilerServices;
+using UnityEngine.SceneManagement;
 public class RankingMenu : MonoBehaviour
 {
     public bool playerFinished;
@@ -118,5 +119,10 @@ public class RankingMenu : MonoBehaviour
         B.SetActive(false);
         C.SetActive(false);
         D.SetActive(false);
+    }
+
+    public void BackToLevelSelect()
+    {
+        SceneManager.LoadScene("Level Select Menu");
     }
 }

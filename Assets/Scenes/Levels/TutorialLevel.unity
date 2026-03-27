@@ -5299,7 +5299,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
   m_PrefabInstance: {fileID: 6907400968705378305}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6907400968705378306}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4813bc20cb932a4196ce42aa60bd7d8, type: 3}
@@ -10922,6 +10922,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3090097871572289422, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6907400968705378306}
     - target: {fileID: 6581138281047354061, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
       propertyPath: m_Name
       value: Gameplay Canvas
@@ -11163,6 +11167,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 441477045}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: shotgunAcquired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: shotgunPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -11398,6 +11406,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
+--- !u!1 &6907400968705378306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8669815615922284827, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
+  m_PrefabInstance: {fileID: 6907400968705378305}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8621149056675423254
 PrefabInstance:
   m_ObjectHideFlags: 0
