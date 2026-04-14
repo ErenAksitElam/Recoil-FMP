@@ -203,14 +203,15 @@ public class Shooting : MonoBehaviour
                     float bulDirY = (gameObject.transform.eulerAngles.y + angle);
                     //Debug.Log(bulDirY);
 
-                    bulletInst = Instantiate(bullet, transform.position, Quaternion.Euler(transform.eulerAngles.x, -bulDirY, transform.eulerAngles.z));
+                    bulletInst = Instantiate(bullet, transform.position, Quaternion.Euler(transform.eulerAngles.x, bulDirY, transform.eulerAngles.z));
 
                     bulletInst.transform.position = transform.position;
 
                     Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
-                    
-                    //bulletInst.transform.rotation = new Quaternion(transform.rotation.x, bulDirY, transform.rotation.z, transform.rotation.w);
-                    bulletInst.transform.eulerAngles = new Vector3(transform.eulerAngles.x, bulDirY, transform.eulerAngles.z);
+
+                    Quaternion quatAngles = Quaternion.Inverse(Quaternion.Euler(new Vector3(transform.eulerAngles.x, -bulDirY + 180, transform.eulerAngles.z)));
+                    bulletInst.transform.rotation = quatAngles;
+                    //bulletInst.transform.eulerAngles = new Vector3(transform.eulerAngles.x, bulDirY, transform.eulerAngles.z);
 
                     bulletInstRB.AddForce(bulletInst.transform.right * bulletSpeed);
                     angle += angleStep;
