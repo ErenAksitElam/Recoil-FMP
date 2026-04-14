@@ -785,11 +785,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: endAngle
-      value: 270
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: startAngle
-      value: 90
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: bulletAmount
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: shotgunAcquired
