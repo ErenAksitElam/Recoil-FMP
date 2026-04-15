@@ -140,8 +140,8 @@ MonoBehaviour:
   HP2: {fileID: 0}
   HP3: {fileID: 0}
   bulletAmount: 10
-  startAngle: 90
-  endAngle: 270
+  startAngle: 135
+  endAngle: 225
   deathScreen: {fileID: 0}
 --- !u!135 &1323390511136260876
 SphereCollider:

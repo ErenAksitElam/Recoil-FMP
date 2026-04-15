@@ -4733,6 +4733,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: enemyIndicator
+      value: 
+      objectReference: {fileID: 4135847972867050892, guid: db1bc90e2d0adcb44afba5b8f90dd467, type: 3}
+    - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
       propertyPath: exitGates.Array.size
       value: 1
       objectReference: {fileID: 0}

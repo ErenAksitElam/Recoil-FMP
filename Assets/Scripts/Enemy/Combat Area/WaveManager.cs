@@ -37,11 +37,16 @@ public class WaveManager : MonoBehaviour
 
     [DisplayWithoutEdit]  public List<GameObject> instEnemies = new();
 
+    [DisplayWithoutEdit]  public List<GameObject> instIndicators = new();
+
     public int enemyCount;
 
     private bool firstStart = true;
 
     [SerializeField, DisplayWithoutEdit] private int waveLocIndex = -1;
+
+    public GameObject enemyIndicator;
+
 
     private void Awake()
     {
@@ -146,12 +151,28 @@ public class WaveManager : MonoBehaviour
         }
         foreach (GameObject i in waveLocations)
         {
-            waveLocIndex += 1;
             instEnemies.Add(Instantiate(enemy, i.transform) as GameObject);
-            if (nextWaveLocations.Length >= waveLocIndex && currentWave != 4)
-                nextWaveLocations[waveLocIndex].GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(true);
-            if (lastWaveLocations.Length >= waveLocIndex && currentWave != 1)
-                lastWaveLocations[waveLocIndex].GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
+        }
+
+        if (currentWave != 4)
+        {
+            //nextWaveLocations[waveLocIndex].GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(true);
+            //instIndicators.Add(Instantiate(enemyIndicator, i.transform) as GameObject);
+            foreach (GameObject i in nextWaveLocations)
+            {
+                instIndicators.Add(Instantiate(enemyIndicator, i.transform) as GameObject);
+
+            }
+        }
+
+        if (currentWave != 1)
+        {
+            //lastWaveLocations[waveLocIndex].transform.Find("Next Wave Crosshair").gameObject.SetActive(false);
+            foreach (GameObject i in lastWaveLocations)
+            {
+                waveLocIndex += 1;
+                Destroy(instIndicators[waveLocIndex].transform.gameObject);
+            }
         }
     }
 
