@@ -16,6 +16,8 @@ public class WaveManager : MonoBehaviour
     public GameObject[] wave4Locations;
 
     private GameObject[] waveLocations;
+    private GameObject[] nextWaveLocations;
+    private GameObject[] lastWaveLocations;
 
     public GameObject[] entranceGates;
     public GameObject[] exitGates;
@@ -38,6 +40,8 @@ public class WaveManager : MonoBehaviour
     public int enemyCount;
 
     private bool firstStart = true;
+
+    [SerializeField, DisplayWithoutEdit] private int waveLocIndex = -1;
 
     private void Awake()
     {
@@ -113,16 +117,41 @@ public class WaveManager : MonoBehaviour
 
     void StartWave()
     {
+        waveLocIndex = 0;
         //waveCooldown = true;
         waveEnded = false;
-        if (currentWave == 1) waveLocations = wave1Locations;
-        else if (currentWave == 2) waveLocations = wave2Locations;
-        else if (currentWave == 3) waveLocations = wave3Locations;
-        else if (currentWave == 4) waveLocations = wave4Locations;
+        if (currentWave == 1) 
+        {
+            lastWaveLocations = wave1Locations;
+            waveLocations = wave1Locations;
+            nextWaveLocations = wave2Locations;
+        }
+        else if (currentWave == 2) 
+        {
+            lastWaveLocations = wave1Locations;
+            waveLocations = wave2Locations;
+            nextWaveLocations = wave3Locations;
+        }
+        else if (currentWave == 3) 
+        {
+            lastWaveLocations = wave2Locations;
+            waveLocations = wave3Locations;
+            nextWaveLocations = wave4Locations;
+        }
+        else if (currentWave == 4) 
+        {
+            lastWaveLocations = wave3Locations;
+            waveLocations = wave4Locations;
+            nextWaveLocations = wave4Locations;
+        }
         foreach (GameObject i in waveLocations)
         {
-            //Instantiate(enemy, i.transform);
+            waveLocIndex += 1;
             instEnemies.Add(Instantiate(enemy, i.transform) as GameObject);
+            if (nextWaveLocations.Length >= waveLocIndex && currentWave != 4)
+                nextWaveLocations[waveLocIndex].GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(true);
+            if (lastWaveLocations.Length >= waveLocIndex && currentWave != 1)
+                lastWaveLocations[waveLocIndex].GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
         }
     }
 
