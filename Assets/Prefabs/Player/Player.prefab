@@ -122,7 +122,6 @@ MonoBehaviour:
   bullet: {fileID: 6011969446408841123, guid: 069ad32e2dab294468ca2792244aacd3, type: 3}
   shotgunBullet: {fileID: 6011969446408841123, guid: 9a4091f5b7aef6b4183e32b569f37d34, type: 3}
   bulletLife: 3
-  recoilForce: 800
   playerHP: 3
   pistolDamage: 1
   shotgunDamage: 2
@@ -130,7 +129,11 @@ MonoBehaviour:
   pistolAcquired: 0
   shotgunAcquired: 0
   playerWillBe: {fileID: 1394905092199925835}
-  shotCooldown: 0.4
+  pistolCooldown: 0.4
+  pistolRecoilForce: 800
+  shotgunReloadTime: 15
+  shotgunCooldown: 5
+  shotgunRecoilForce: 1000
   shootingDisabled: 0
   hasWeapon: 0
   HP1: {fileID: 0}
@@ -139,6 +142,7 @@ MonoBehaviour:
   bulletAmount: 10
   startAngle: 90
   endAngle: 270
+  deathScreen: {fileID: 0}
 --- !u!135 &1323390511136260876
 SphereCollider:
   m_ObjectHideFlags: 0

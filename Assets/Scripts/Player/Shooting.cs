@@ -38,7 +38,7 @@ public class Shooting : MonoBehaviour
 
     private Rigidbody rb;
 
-    public int recoilForce;
+    private int recoilForce;
 
     public int playerHP;
 
@@ -52,7 +52,13 @@ public class Shooting : MonoBehaviour
 
     public GameObject playerWillBe;
 
-    public float shotCooldown;
+    private float shotCooldown;
+    public float pistolCooldown;
+    public int pistolRecoilForce;
+
+    public float shotgunReloadTime;
+    public float shotgunCooldown;
+    public int shotgunRecoilForce;
 
     [DisplayWithoutEdit] public bool shootingDisabled = false;
 
@@ -69,6 +75,8 @@ public class Shooting : MonoBehaviour
     public int bulletAmount = 10;
     public float startAngle = 90f; // Starting Angle
     public float endAngle = 270f; // Ending Angle
+
+    public GameObject deathScreen;
 
     private void Start()
     {
@@ -95,10 +103,14 @@ public class Shooting : MonoBehaviour
         if (currentWeapon == "Pistol")
         {
             damage = pistolDamage;
+            shotCooldown = pistolCooldown;
+            recoilForce = pistolRecoilForce;
         }
         else if (currentWeapon == "Shotgun")
         {
             damage = shotgunDamage;
+            shotCooldown = shotgunCooldown;
+            recoilForce = pistolRecoilForce;
         }
 
         shootingDisabled = false;
@@ -139,7 +151,9 @@ public class Shooting : MonoBehaviour
         if (playerHP <= 0)
         {
             HP2.SetActive(false);
-            SceneManager.LoadScene("Game Over");
+            //SceneManager.LoadScene("Game Over");
+
+            deathScreen.SetActive(true);
         }   
 
         LayerMask groundLayer = LayerMask.NameToLayer("Ground");
@@ -157,6 +171,8 @@ public class Shooting : MonoBehaviour
                 Debug.Log("Swapped to Shotgun");
                 currentWeapon = "Shotgun";
                 damage = shotgunDamage;
+                shotCooldown = shotgunCooldown;
+                recoilForce = pistolRecoilForce;
                 hasSwapped = true;
             }
             else if (currentWeapon == "Shotgun")
@@ -164,6 +180,8 @@ public class Shooting : MonoBehaviour
                 Debug.Log("Swapped to Pistol");
                 currentWeapon = "Pistol";
                 damage = pistolDamage;
+                shotCooldown = pistolCooldown;
+                recoilForce = pistolRecoilForce;
                 hasSwapped = true;
             }
         }
@@ -171,7 +189,7 @@ public class Shooting : MonoBehaviour
 
     private void Firing()
     {
-        if (shooting.IsPressed() && !isReloading && !cooldown && !hasShot && !shootingDisabled)
+        if (shooting.IsPressed() && !hasShot && !shootingDisabled)
         {
             cooldown = true;
             hasShot = true;
@@ -184,8 +202,11 @@ public class Shooting : MonoBehaviour
                 Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
                 bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
                 bulletInst.transform.rotation = gameObject.transform.rotation;
+
+                //The recoil force
+                rb.AddForce(-gameObject.transform.right * recoilForce);
             }
-            else if (currentWeapon == "Shotgun")
+            else if (currentWeapon == "Shotgun" && !isReloading)
             {
                 /*
                 bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
@@ -216,24 +237,25 @@ public class Shooting : MonoBehaviour
                     bulletInstRB.AddForce(bulletInst.transform.right * bulletSpeed);
                     angle += angleStep;
                 }
+
+                //The recoil force
+                rb.AddForce(-gameObject.transform.right * recoilForce);
             }
 
-            //The recoil force
-            rb.AddForce(-gameObject.transform.right * recoilForce);
-
-            StartCoroutine(shootingCooldown());
             ammo -= 1;
             Destroy(bulletInst, bulletLife);
             //Could be added for the shotgun as that would have a low amount of ammo with high knockback and damage
-            /*if (ammo <= 0)
-                StartCoroutine(ReloadWait());*/
+            if (ammo <= 0 && currentWeapon == "Shotgun")
+                StartCoroutine(ReloadWait());
+            else
+                StartCoroutine(shootingCooldown());
         }
     }
 
     IEnumerator ReloadWait()
     {
         isReloading = true;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(shotgunReloadTime);
         ammo = originalAmmo;
         isReloading = false;
     }
