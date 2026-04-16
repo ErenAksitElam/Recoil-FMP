@@ -154,7 +154,7 @@ public class WaveManager : MonoBehaviour
             instEnemies.Add(Instantiate(enemy, i.transform) as GameObject);
         }
 
-        if (currentWave == numberOfWaves)
+        if (currentWave != numberOfWaves)
         {
             //nextWaveLocations[waveLocIndex].GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(true);
             //instIndicators.Add(Instantiate(enemyIndicator, i.transform) as GameObject);
