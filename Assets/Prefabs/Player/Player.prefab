@@ -143,6 +143,9 @@ MonoBehaviour:
   startAngle: 135
   endAngle: 225
   deathScreen: {fileID: 0}
+  fill: {fileID: 0}
+  primaryIndicatorTime: 0
+  primaryIndicator: {fileID: 0}
 --- !u!135 &1323390511136260876
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -352,7 +355,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5746967471748876844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Threading;
 
 public class Shooting : MonoBehaviour
 {
@@ -78,6 +80,10 @@ public class Shooting : MonoBehaviour
 
     public GameObject deathScreen;
 
+    public Image fill;
+    [SerializeField, DisplayWithoutEdit] private float primaryIndicatorTime;
+    public GameObject primaryIndicator;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -110,10 +116,18 @@ public class Shooting : MonoBehaviour
         {
             damage = shotgunDamage;
             shotCooldown = shotgunCooldown;
-            recoilForce = pistolRecoilForce;
+            recoilForce = shotgunRecoilForce;
+            primaryIndicatorTime = shotgunReloadTime;
         }
 
+        primaryIndicatorTime = shotgunReloadTime;
+
         shootingDisabled = false;
+
+        if (shotgunAcquired)
+        {
+            primaryIndicator.SetActive(true);
+        }
     }
 
     private void OnEnable()
@@ -153,6 +167,7 @@ public class Shooting : MonoBehaviour
             HP2.SetActive(false);
             //SceneManager.LoadScene("Game Over");
 
+            primaryIndicator.SetActive(false);
             deathScreen.SetActive(true);
         }   
 
@@ -172,7 +187,8 @@ public class Shooting : MonoBehaviour
                 currentWeapon = "Shotgun";
                 damage = shotgunDamage;
                 shotCooldown = shotgunCooldown;
-                recoilForce = pistolRecoilForce;
+                recoilForce = shotgunRecoilForce;
+                //primaryIndicatorTime = shotgunReloadTime;
                 hasSwapped = true;
             }
             else if (currentWeapon == "Shotgun")
@@ -185,6 +201,17 @@ public class Shooting : MonoBehaviour
                 hasSwapped = true;
             }
         }
+
+        if (isReloading)
+        {
+            primaryIndicatorTime += Time.deltaTime;
+            fill.fillAmount = primaryIndicatorTime / shotgunReloadTime;
+        }
+        else
+        {
+            primaryIndicatorTime = shotgunReloadTime;
+            fill.fillAmount = primaryIndicatorTime;
+        }  
     }
 
     private void Firing()
@@ -214,6 +241,8 @@ public class Shooting : MonoBehaviour
                 bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
                 bulletInst.transform.rotation = gameObject.transform.rotation;
                 */
+                primaryIndicatorTime = 0;
+                fill.fillAmount = primaryIndicatorTime;
 
                 float angleStep = (endAngle - startAngle) / bulletAmount;
                 float angle = startAngle;
