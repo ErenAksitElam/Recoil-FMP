@@ -116,8 +116,11 @@ public class WaveManager : MonoBehaviour
                 StartWave();
         }
 
-        if (enemyCount >= waveLocations.Length)
-            waveEnded = true;
+        if (waveLocations != null)
+        {
+            if (enemyCount >= waveLocations.Length)
+                waveEnded = true;
+        }
     }
 
     void StartWave()
@@ -161,7 +164,6 @@ public class WaveManager : MonoBehaviour
             foreach (GameObject i in nextWaveLocations)
             {
                 instIndicators.Add(Instantiate(enemyIndicator, i.transform) as GameObject);
-
             }
         }
 
@@ -172,6 +174,13 @@ public class WaveManager : MonoBehaviour
             {
                 waveLocIndex += 1;
                 Destroy(instIndicators[waveLocIndex].transform.gameObject);
+            }
+        }
+        else if (currentWave >= numberOfWaves)
+        {
+            foreach (GameObject i in instIndicators)
+            {
+                Destroy(i);
             }
         }
     }
