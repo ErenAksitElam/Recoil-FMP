@@ -2795,8 +2795,8 @@ Transform:
   m_GameObject: {fileID: 435510071}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99652284, z: -0, w: 0.083319925}
-  m_LocalPosition: {x: 139.49622, y: 1.3885, z: -17.147032}
-  m_LocalScale: {x: 1, y: 2.777, z: 5.6869555}
+  m_LocalPosition: {x: 139.6875, y: 1.3885, z: -18.283}
+  m_LocalScale: {x: 1, y: 2.777, z: 7.9907413}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 429545535}
@@ -5020,6 +5020,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.26479456
       objectReference: {fileID: 0}
+    - target: {fileID: 1220108334531950995, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ad4a8830c8928aa439f98afc217d3f46, type: 2}
     - target: {fileID: 2618210370293871220, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
       propertyPath: m_Name
       value: Combat Area Group (1)
@@ -5264,6 +5268,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 7.06
       objectReference: {fileID: 0}
+    - target: {fileID: 7566130084286040148, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ad4a8830c8928aa439f98afc217d3f46, type: 2}
     - target: {fileID: 8575850349941604700, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
       propertyPath: m_Name
       value: Wave 1 Locations
@@ -7195,6 +7203,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.079980925
       objectReference: {fileID: 0}
+    - target: {fileID: 1220108334531950995, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ad4a8830c8928aa439f98afc217d3f46, type: 2}
     - target: {fileID: 2618210370293871220, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
       propertyPath: m_Name
       value: Combat Area Group (2)

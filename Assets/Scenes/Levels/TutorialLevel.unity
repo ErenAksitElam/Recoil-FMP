@@ -4688,6 +4688,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1220108334531950995, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ad4a8830c8928aa439f98afc217d3f46, type: 2}
     - target: {fileID: 2618210370293871220, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
       propertyPath: m_Name
       value: Combat Area Group (1)
@@ -4752,6 +4756,10 @@ PrefabInstance:
       propertyPath: 'entranceGates.Array.data[0]'
       value: 
       objectReference: {fileID: 9874079}
+    - target: {fileID: 7566130084286040148, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ad4a8830c8928aa439f98afc217d3f46, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 317486753525289172, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
