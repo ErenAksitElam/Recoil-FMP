@@ -4500,6 +4500,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717115628}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &769629827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3348818912780636294, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+  m_PrefabInstance: {fileID: 540415415202007185}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &774637898
 GameObject:
   m_ObjectHideFlags: 0
@@ -5952,6 +5963,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878233782}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &880871770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4353092173474714042, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+  m_PrefabInstance: {fileID: 540415415202007185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &883911172
 GameObject:
   m_ObjectHideFlags: 0
@@ -8064,6 +8080,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090781856}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1109440534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5984309856374697524, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+  m_PrefabInstance: {fileID: 540415415202007185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1109441827
 GameObject:
   m_ObjectHideFlags: 0
@@ -13920,6 +13941,18 @@ PrefabInstance:
       propertyPath: HP3
       value: 
       objectReference: {fileID: 540415415202007190}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: fill
+      value: 
+      objectReference: {fileID: 769629827}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 880871770}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: primaryIndicator
+      value: 
+      objectReference: {fileID: 1109440534}
     - target: {fileID: 3102533842788839556, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14096,23 +14129,23 @@ PrefabInstance:
       objectReference: {fileID: 1949246323}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: ATime
-      value: 30
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: BTime
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: CTime
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: DTime
-      value: 55
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: STime
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: timerText
