@@ -84,6 +84,11 @@ public class Shooting : MonoBehaviour
     [SerializeField, DisplayWithoutEdit] private float primaryIndicatorTime;
     public GameObject primaryIndicator;
 
+    public GameObject slidingGraphic;
+    public GameObject standingGraphic;
+
+    public GameObject nextWaveText;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -168,6 +173,7 @@ public class Shooting : MonoBehaviour
             //SceneManager.LoadScene("Game Over");
 
             primaryIndicator.SetActive(false);
+            nextWaveText.SetActive(false);
             deathScreen.SetActive(true);
         }   
 
@@ -218,6 +224,8 @@ public class Shooting : MonoBehaviour
     {
         if (shooting.IsPressed() && !hasShot && !shootingDisabled)
         {
+            standingGraphic.SetActive(false);
+            slidingGraphic.SetActive(true);
             cooldown = true;
             hasShot = true;
             //Debug.Log("Shooted");

@@ -795,8 +795,8 @@ Transform:
   m_GameObject: {fileID: 100514368}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.8339819, z: -0, w: 0.5517919}
-  m_LocalPosition: {x: 130.99, y: 1.3885, z: -5.11}
-  m_LocalScale: {x: 1, y: 2.777, z: 5.2290907}
+  m_LocalPosition: {x: 130.861, y: 1.3885, z: -5.0552}
+  m_LocalScale: {x: 1, y: 2.777, z: 5.50937}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 429545535}
@@ -5145,6 +5145,10 @@ PrefabInstance:
       value: -48.46
       objectReference: {fileID: 0}
     - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: nextWaveText
+      value: 
+      objectReference: {fileID: 1233485539}
+    - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
       propertyPath: numberOfWaves
       value: 2
       objectReference: {fileID: 0}
@@ -5152,6 +5156,10 @@ PrefabInstance:
       propertyPath: enemyIndicator
       value: 
       objectReference: {fileID: 4135847972867050892, guid: db1bc90e2d0adcb44afba5b8f90dd467, type: 3}
+    - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: waveCooldownTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
       propertyPath: exitGates.Array.size
       value: 1
@@ -7332,6 +7340,10 @@ PrefabInstance:
       value: -38.7
       objectReference: {fileID: 0}
     - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: nextWaveText
+      value: 
+      objectReference: {fileID: 1233485539}
+    - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
       propertyPath: numberOfWaves
       value: 1
       objectReference: {fileID: 0}
@@ -7339,6 +7351,10 @@ PrefabInstance:
       propertyPath: enemyIndicator
       value: 
       objectReference: {fileID: 4135847972867050892, guid: db1bc90e2d0adcb44afba5b8f90dd467, type: 3}
+    - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
+      propertyPath: waveCooldownTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5496053788353644555, guid: c9b6e262ad090d742a9dd31b8198718b, type: 3}
       propertyPath: exitGates.Array.size
       value: 1
@@ -9018,6 +9034,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231746576}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1233485539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1618027193399903096, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+  m_PrefabInstance: {fileID: 540415415202007185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1238174837
 GameObject:
   m_ObjectHideFlags: 0
@@ -13759,10 +13780,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 927415888}
-    - target: {fileID: 3090097871572289422, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToLevelSelect
-      objectReference: {fileID: 0}
     - target: {fileID: 6581138281047354061, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
       propertyPath: m_Name
       value: Gameplay Canvas
@@ -14157,7 +14174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: STime
-      value: 17
+      value: 18.2
       objectReference: {fileID: 0}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: timerText

@@ -47,6 +47,7 @@ public class WaveManager : MonoBehaviour
 
     public GameObject enemyIndicator;
 
+    public GameObject nextWaveText;
 
     private void Awake()
     {
@@ -65,7 +66,8 @@ public class WaveManager : MonoBehaviour
         //StartWave();
 
         currentWave = 1;
-}
+    }
+
     private void Update()
     {
         //The entrance gate closes behind the player once they enter the combat area
@@ -113,7 +115,9 @@ public class WaveManager : MonoBehaviour
             if (currentWave > numberOfWaves)
                 playerAllowedToLeave = true;
             else
-                StartWave();
+            {
+                StartCoroutine(NextWaveTextWait());
+            }
         }
 
         if (waveLocations != null)
@@ -185,11 +189,11 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    /*
-    IEnumerator waveWait()
+    IEnumerator NextWaveTextWait()
     {
-        waveCooldown = true;
+        nextWaveText.SetActive(true);
         yield return new WaitForSeconds(waveCooldownTime);
-        waveCooldown = false;
-    }*/
+        nextWaveText.SetActive(false);
+        StartWave();
+    }
 }
