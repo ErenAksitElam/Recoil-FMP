@@ -13780,9 +13780,33 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 927415888}
+    - target: {fileID: 5399052823025644548, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5554901263113138660, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6541867165234658691, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6581138281047354061, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
       propertyPath: m_Name
       value: Gameplay Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200804507474301609, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037351572498291744, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922929804594262197, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
