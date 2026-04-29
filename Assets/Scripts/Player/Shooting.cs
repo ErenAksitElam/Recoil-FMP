@@ -227,7 +227,6 @@ public class Shooting : MonoBehaviour
             fill.fillAmount = primaryIndicatorTime;
         }
         
-        //head.transform.rotation = playerWillBe;
         lookRotation = Quaternion.LookRotation((playerWillBe.transform.position - transform.position).normalized);
 
         head.transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turn_speed);
