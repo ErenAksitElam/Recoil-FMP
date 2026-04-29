@@ -3,6 +3,7 @@ using TMPro;
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class RankingMenu : MonoBehaviour
 {
     public bool playerFinished;
@@ -19,6 +20,7 @@ public class RankingMenu : MonoBehaviour
     public GameObject B;
     public GameObject C;
     public GameObject D;
+    public GameObject F;
 
     public float STime;
     public float ATime;
@@ -95,10 +97,15 @@ public class RankingMenu : MonoBehaviour
             TurnOffAllLetters();
             C.SetActive(true);
         }
-        else
+        else if (currentTime < DTime)
         {
             TurnOffAllLetters();
             D.SetActive(true);
+        }
+        else
+        {
+            TurnOffAllLetters();
+            F.SetActive(true);
         }
         #endregion
     }
@@ -124,5 +131,10 @@ public class RankingMenu : MonoBehaviour
     public void BackToLevelSelect()
     {
         SceneManager.LoadScene("Level Select Menu");
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

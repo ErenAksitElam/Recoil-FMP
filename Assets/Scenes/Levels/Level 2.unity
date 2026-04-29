@@ -448,6 +448,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1618027193399903096, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
   m_PrefabInstance: {fileID: 540415415202007185}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &40883730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5399052823025644548, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+  m_PrefabInstance: {fileID: 540415415202007185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &83098165
 GameObject:
   m_ObjectHideFlags: 0
@@ -13021,6 +13026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence
       objectReference: {fileID: 0}
+    - target: {fileID: 7842830835064021905, guid: 52bfc98eef2ad8f43bf8472a18a5c134, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13119,10 +13128,6 @@ PrefabInstance:
       propertyPath: nextWaveText
       value: 
       objectReference: {fileID: 37208736}
-    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
-      propertyPath: shotgunAcquired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: primaryIndicator
       value: 
@@ -13297,6 +13302,10 @@ PrefabInstance:
       propertyPath: D
       value: 
       objectReference: {fileID: 540415415202007186}
+    - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
+      propertyPath: F
+      value: 
+      objectReference: {fileID: 40883730}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: S
       value: 
