@@ -2076,6 +2076,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7465989324770179371, guid: 52bfc98eef2ad8f43bf8472a18a5c134, type: 3}
   m_PrefabInstance: {fileID: 112766817}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &119774676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6877011940855579595, guid: d1a9dd58398d3514c92869ee9ad90176, type: 3}
+  m_PrefabInstance: {fileID: 1818014068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &125043911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6777,6 +6782,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7465989324770179371, guid: 52bfc98eef2ad8f43bf8472a18a5c134, type: 3}
   m_PrefabInstance: {fileID: 449982867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &454729213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5702592578840462395, guid: d1a9dd58398d3514c92869ee9ad90176, type: 3}
+  m_PrefabInstance: {fileID: 1818014068}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &474051285
 PrefabInstance:
@@ -23275,6 +23285,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerParts
       objectReference: {fileID: 0}
+    - target: {fileID: 114518278176779949, guid: d1a9dd58398d3514c92869ee9ad90176, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1189270744626476931, guid: d1a9dd58398d3514c92869ee9ad90176, type: 3}
       propertyPath: HP1
       value: 
@@ -23376,9 +23390,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 540415415202007193}
     - target: {fileID: 7683623945053848864, guid: d1a9dd58398d3514c92869ee9ad90176, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 119774676}
+    - target: {fileID: 7683623945053848864, guid: d1a9dd58398d3514c92869ee9ad90176, type: 3}
       propertyPath: fill
       value: 
       objectReference: {fileID: 540415415202007190}
+    - target: {fileID: 7683623945053848864, guid: d1a9dd58398d3514c92869ee9ad90176, type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 454729213}
     - target: {fileID: 7683623945053848864, guid: d1a9dd58398d3514c92869ee9ad90176, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -27668,6 +27690,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 927415888}
+    - target: {fileID: 594635854317577948, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     - target: {fileID: 832563505720433592, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -28275,7 +28301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: STime
-      value: 7.5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: timerText

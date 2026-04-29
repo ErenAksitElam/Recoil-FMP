@@ -89,6 +89,13 @@ public class Shooting : MonoBehaviour
 
     public GameObject nextWaveText;
 
+    //Player sprite parts
+    public GameObject head;
+    public GameObject body;
+
+    private Quaternion lookRotation;
+    public float turn_speed;
+
     private void Start()
     {
         //rb = GetComponent<Rigidbody>();
@@ -218,7 +225,13 @@ public class Shooting : MonoBehaviour
         {
             primaryIndicatorTime = shotgunReloadTime;
             fill.fillAmount = primaryIndicatorTime;
-        }  
+        }
+        
+        //head.transform.rotation = playerWillBe;
+        lookRotation = Quaternion.LookRotation((playerWillBe.transform.position - transform.position).normalized);
+
+        head.transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turn_speed);
+        body.transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turn_speed);
     }
 
     private void Firing()
