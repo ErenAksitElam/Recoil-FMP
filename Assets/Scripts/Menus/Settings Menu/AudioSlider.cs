@@ -16,7 +16,9 @@ public class AudioSlider : MonoBehaviour
 
     public void OnChangeSlider(float value)
     {
-        valueText.SetText($"{value.ToString("N4")}");
+        value *= 100;
+        //valueText.SetText($"{value.ToString("N4")}");
+        valueText.SetText($"{value.ToString("N0")}");
 
         switch (mixMode)
         {

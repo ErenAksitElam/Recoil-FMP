@@ -84,8 +84,8 @@ public class Shooting : MonoBehaviour
     [SerializeField, DisplayWithoutEdit] private float primaryIndicatorTime;
     public GameObject primaryIndicator;
 
-    public GameObject slidingGraphic;
-    public GameObject standingGraphic;
+    //public GameObject slidingGraphic;
+    //public GameObject standingGraphic;
 
     public GameObject nextWaveText;
 
@@ -227,18 +227,18 @@ public class Shooting : MonoBehaviour
             fill.fillAmount = primaryIndicatorTime;
         }
         
-        lookRotation = Quaternion.LookRotation((playerWillBe.transform.position - transform.position).normalized);
+        lookRotation = Quaternion.LookRotation((playerWillBe.transform.position - transform.parent.position).normalized);
 
-        head.transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turn_speed);
-        body.transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turn_speed);
+        head.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turn_speed);
+        body.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turn_speed);
     }
 
     private void Firing()
     {
         if (shooting.IsPressed() && !hasShot && !shootingDisabled)
         {
-            standingGraphic.SetActive(false);
-            slidingGraphic.SetActive(true);
+            //standingGraphic.SetActive(false);
+            //slidingGraphic.SetActive(true);
             cooldown = true;
             hasShot = true;
             //Debug.Log("Shooted");
