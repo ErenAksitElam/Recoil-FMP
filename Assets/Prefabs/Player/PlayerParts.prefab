@@ -120,7 +120,7 @@ MonoBehaviour:
   damage: 1
   pistolAcquired: 0
   shotgunAcquired: 0
-  playerWillBe: {fileID: 1394905092199925835}
+  playerWillBe: {fileID: 0}
   pistolCooldown: 0.4
   pistolRecoilForce: 800
   shotgunReloadTime: 15
@@ -325,7 +325,7 @@ MonoBehaviour:
   damage: 1
   pistolAcquired: 0
   shotgunAcquired: 0
-  playerWillBe: {fileID: 0}
+  playerWillBe: {fileID: 1394905092199925835}
   pistolCooldown: 0.4
   pistolRecoilForce: 800
   shotgunReloadTime: 15
@@ -344,8 +344,8 @@ MonoBehaviour:
   primaryIndicatorTime: 0
   primaryIndicator: {fileID: 0}
   nextWaveText: {fileID: 0}
-  head: {fileID: 5702592578840462395}
-  body: {fileID: 6877011940855579595}
+  head: {fileID: 6719294895532972776}
+  body: {fileID: 347014078319081336}
   turn_speed: 0
 --- !u!1 &1253623596913626355
 GameObject:
