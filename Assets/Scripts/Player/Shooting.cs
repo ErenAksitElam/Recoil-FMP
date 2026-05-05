@@ -90,9 +90,9 @@ public class Shooting : MonoBehaviour
     public GameObject nextWaveText;
 
     //Player sprite parts
-    /*
+    
     public GameObject head;
-    public GameObject body;*/
+    public GameObject body;
 
     private Quaternion lookRotation;
     public float turn_speed;
@@ -229,9 +229,11 @@ public class Shooting : MonoBehaviour
         }
         
         lookRotation = Quaternion.LookRotation((playerWillBe.transform.position - transform.parent.position).normalized);
-        /*
+        lookRotation *= Quaternion.Euler(0, 90, 0);
+
+
         head.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turn_speed);
-        body.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turn_speed);*/
+        body.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turn_speed);
     }
 
     private void Firing()

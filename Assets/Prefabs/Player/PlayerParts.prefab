@@ -138,6 +138,8 @@ MonoBehaviour:
   fill: {fileID: 0}
   primaryIndicatorTime: 0
   primaryIndicator: {fileID: 0}
+  slidingGraphic: {fileID: 0}
+  standingGraphic: {fileID: 0}
   nextWaveText: {fileID: 0}
   head: {fileID: 6719294895532972776}
   body: {fileID: 347014078319081336}
@@ -343,10 +345,12 @@ MonoBehaviour:
   fill: {fileID: 0}
   primaryIndicatorTime: 0
   primaryIndicator: {fileID: 0}
+  slidingGraphic: {fileID: 0}
+  standingGraphic: {fileID: 0}
   nextWaveText: {fileID: 0}
   head: {fileID: 6719294895532972776}
   body: {fileID: 347014078319081336}
-  turn_speed: 0
+  turn_speed: 500
 --- !u!1 &1253623596913626355
 GameObject:
   m_ObjectHideFlags: 0
