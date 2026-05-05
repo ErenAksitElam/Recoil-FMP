@@ -95,7 +95,7 @@ public class Shooting : MonoBehaviour
     public GameObject body;
 
     private Quaternion lookRotation;
-    public float turn_speed;
+    public float turnSpeed;
 
     private void Start()
     {
@@ -232,8 +232,8 @@ public class Shooting : MonoBehaviour
         lookRotation *= Quaternion.Euler(0, 90, 0);
 
 
-        head.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turn_speed);
-        body.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turn_speed);
+        head.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turnSpeed);
+        body.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
     private void Firing()

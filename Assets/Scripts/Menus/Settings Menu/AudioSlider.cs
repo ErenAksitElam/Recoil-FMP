@@ -9,7 +9,7 @@ public class AudioSlider : MonoBehaviour
     [SerializeField] private TextMeshProUGUI valueText;
     [SerializeField] private AudioMixMode mixMode;
 
-    private void Start()
+    private void Awake()
     {
         mixer.SetFloat("Volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume", 1) * 20));
     }

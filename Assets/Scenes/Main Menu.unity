@@ -2160,7 +2160,7 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: b93674d6a03bef64d9d25b30eb3f83e0, type: 2}
   audioSource: {fileID: 1747071163}
   valueText: {fileID: 547005046}
-  mixMode: 0
+  mixMode: 2
 --- !u!1 &2137895229
 GameObject:
   m_ObjectHideFlags: 0
