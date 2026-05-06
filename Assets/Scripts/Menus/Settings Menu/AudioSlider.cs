@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class AudioSlider : MonoBehaviour
 {
@@ -39,7 +40,8 @@ public class AudioSlider : MonoBehaviour
 
         PlayerPrefs.SetFloat("musicVolume", volume);
 
-
+        float value = musicSlider.value * 100;
+        volumeText.SetText($"{value.ToString("N0")}");
     }
 
     private void LoadVolume()

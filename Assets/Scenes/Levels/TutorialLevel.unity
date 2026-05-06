@@ -5484,6 +5484,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7465989324770179371, guid: 52bfc98eef2ad8f43bf8472a18a5c134, type: 3}
   m_PrefabInstance: {fileID: 373920898}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &378280101 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3082576729841479222, guid: 504ea003a0348f44ca6f221ee70c52f0, type: 3}
+  m_PrefabInstance: {fileID: 8621149056675423254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &379210135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27598,6 +27603,18 @@ PrefabInstance:
     - target: {fileID: 832563505720433592, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724930877906220111, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 378280101}
+    - target: {fileID: 1724930877906220111, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724930877906220111, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3090097871572289422, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
