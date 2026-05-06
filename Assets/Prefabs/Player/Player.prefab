@@ -130,7 +130,7 @@ MonoBehaviour:
   shotgunDamage: 2
   damage: 1
   pistolAcquired: 0
-  shotgunAcquired: 1
+  shotgunAcquired: 0
   playerWillBe: {fileID: 1394905092199925835}
   pistolCooldown: 0.4
   pistolRecoilForce: 800

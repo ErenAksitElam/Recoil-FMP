@@ -57,7 +57,7 @@ public class RankingMenu : MonoBehaviour
         }
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         //text.text = currentTime.ToString();
-        timerText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString() + ":" + time.Milliseconds.ToString();
+        timerText.text ="<mspace=20px>" + time.Minutes.ToString() + ":" + time.Seconds.ToString() + ":" + time.Milliseconds.ToString();
 
         //Debug.Log(currentTime);
 

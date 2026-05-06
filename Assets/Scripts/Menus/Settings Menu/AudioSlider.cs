@@ -1,48 +1,51 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioSlider : MonoBehaviour
 {
-    [SerializeField] private AudioMixer mixer;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private TextMeshProUGUI valueText;
-    [SerializeField] private AudioMixMode mixMode;
+    [SerializeField] private AudioMixer Master;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private TMP_Text volumeText;
 
-    private void Awake()
+    private void Start()
     {
-        mixer.SetFloat("Volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume", 1) * 20));
-    }
-
-    public void OnChangeSlider(float value)
-    {
-        value *= 100;
-        //valueText.SetText($"{value.ToString("N4")}");
-        valueText.SetText($"{value.ToString("N0")}");
-
-        switch (mixMode)
+        if (PlayerPrefs.HasKey("musicVolume"))
         {
-            case AudioMixMode.linearAudioSourceVolume:
-                audioSource.volume = value;
-                break;
-            case AudioMixMode.LinearMixerVolume:
-                mixer.SetFloat("Volume", (-80 + value * 100));
-                break;
-            case AudioMixMode.LogrithmicMixerVolume:
-                mixer.SetFloat("Volume", Mathf.Log10(value) * 20);
-                break;
+            LoadVolume();
+        }
+        else
+        {
+            SetMusicVolume();
         }
 
-        float a = Mathf.Log10(value) * 20;
-
-        PlayerPrefs.SetFloat("Volume", value);
-        PlayerPrefs.Save();
+        // Add listener to update volume when slider value changes
+        musicSlider.onValueChanged.AddListener(delegate { SetMusicVolume(); });
     }
 
-    public enum AudioMixMode
+    public void SetMusicVolume()
     {
-        linearAudioSourceVolume,
-        LinearMixerVolume,
-        LogrithmicMixerVolume
+        float volume = musicSlider.value;
+
+        if (volume <= 0.0001f)
+        {
+            Master.SetFloat("Volume", -80f); // Minimum volume (mute)
+        }
+        else
+        {
+            Master.SetFloat("Volume", Mathf.Log10(volume) * 20); // Logarithmic volume scaling
+        }
+
+        PlayerPrefs.SetFloat("musicVolume", volume);
+
+
+    }
+
+    private void LoadVolume()
+    {
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+
+        SetMusicVolume();
     }
 }

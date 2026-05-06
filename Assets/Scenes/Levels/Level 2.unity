@@ -13129,6 +13129,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 37208736}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: shotgunAcquired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: primaryIndicator
       value: 
       objectReference: {fileID: 381308362}
