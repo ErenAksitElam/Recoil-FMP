@@ -32,9 +32,16 @@ public class RankingMenu : MonoBehaviour
 
     private Shooting player;
 
+    private LevelLockManager levelLockManager;
+
+    [SerializeField] private bool isTutorial;
+    [SerializeField] private bool isLevel1;
+    [SerializeField] private bool isLevel2;
+
     private void Awake()
     {
         player = FindFirstObjectByType<Shooting>();
+        levelLockManager = FindAnyObjectByType<LevelLockManager>();
     }
 
     private void Start()
@@ -81,31 +88,55 @@ public class RankingMenu : MonoBehaviour
         {
             TurnOffAllLetters();
             S.SetActive(true);
+            if (isTutorial)
+                levelLockManager.UnlockLevel1();
+            else if (isLevel1)
+                levelLockManager.UnlockLevel2();
         }
         else if (currentTime < ATime)
         {
             TurnOffAllLetters();
             A.SetActive(true);
+            if (isTutorial)
+                levelLockManager.UnlockLevel1();
+            else if (isLevel1)
+                levelLockManager.UnlockLevel2();
         }
         else if (currentTime < BTime)
         {
             TurnOffAllLetters();
             B.SetActive(true);
+            if (isTutorial)
+                levelLockManager.UnlockLevel1();
+            else if (isLevel1)
+                levelLockManager.UnlockLevel2();
         }
         else if (currentTime < CTime)
         {
             TurnOffAllLetters();
             C.SetActive(true);
+            if (isTutorial)
+                levelLockManager.UnlockLevel1();
+            else if (isLevel1)
+                levelLockManager.UnlockLevel2();
         }
         else if (currentTime < DTime)
         {
             TurnOffAllLetters();
             D.SetActive(true);
+            if (isTutorial)
+                levelLockManager.UnlockLevel1();
+            else if (isLevel1)
+                levelLockManager.UnlockLevel2();
         }
         else
         {
             TurnOffAllLetters();
             F.SetActive(true);
+            if (isTutorial)
+                levelLockManager.UnlockLevel1();
+            else if (isLevel1)
+                levelLockManager.UnlockLevel2();
         }
         #endregion
     }

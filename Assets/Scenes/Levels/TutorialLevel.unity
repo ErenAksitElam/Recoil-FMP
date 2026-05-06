@@ -28158,6 +28158,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1900794741}
     - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212599839381419003, guid: 4494c0805ef0977459e54468357f33c2, type: 3}
       propertyPath: rankingMenu
       value: 
       objectReference: {fileID: 1591491725}
