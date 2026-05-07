@@ -5,7 +5,7 @@ public class LevelLockManager : MonoBehaviour
     public bool level1Unlocked;
     public bool level2Unlocked;
 
-    private void Awake()
+    private void Update()
     {
         level1Unlocked = (PlayerPrefs.GetInt("UnlockedLevel1") != 0);
         level2Unlocked = (PlayerPrefs.GetInt("UnlockedLevel2") != 0);
