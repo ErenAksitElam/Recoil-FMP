@@ -48,7 +48,7 @@ public class RankingMenu : MonoBehaviour
     {
         currentTime = 0;
 
-        timerActive = true;
+        timerActive = false;
     }
 
     void Update()
@@ -88,55 +88,61 @@ public class RankingMenu : MonoBehaviour
         {
             TurnOffAllLetters();
             S.SetActive(true);
+            /*
             if (isTutorial)
                 levelLockManager.UnlockLevel1();
             else if (isLevel1)
-                levelLockManager.UnlockLevel2();
+                levelLockManager.UnlockLevel2();*/
         }
         else if (currentTime < ATime)
         {
             TurnOffAllLetters();
             A.SetActive(true);
+            /*
             if (isTutorial)
                 levelLockManager.UnlockLevel1();
             else if (isLevel1)
-                levelLockManager.UnlockLevel2();
+                levelLockManager.UnlockLevel2();*/
         }
         else if (currentTime < BTime)
         {
             TurnOffAllLetters();
             B.SetActive(true);
+            /*
             if (isTutorial)
                 levelLockManager.UnlockLevel1();
             else if (isLevel1)
-                levelLockManager.UnlockLevel2();
+                levelLockManager.UnlockLevel2();*/
         }
         else if (currentTime < CTime)
         {
             TurnOffAllLetters();
             C.SetActive(true);
+            /*
             if (isTutorial)
                 levelLockManager.UnlockLevel1();
             else if (isLevel1)
-                levelLockManager.UnlockLevel2();
+                levelLockManager.UnlockLevel2();*/
         }
         else if (currentTime < DTime)
         {
             TurnOffAllLetters();
             D.SetActive(true);
+            /*
             if (isTutorial)
                 levelLockManager.UnlockLevel1();
             else if (isLevel1)
-                levelLockManager.UnlockLevel2();
+                levelLockManager.UnlockLevel2();*/
         }
         else
         {
             TurnOffAllLetters();
             F.SetActive(true);
+            /*
             if (isTutorial)
                 levelLockManager.UnlockLevel1();
             else if (isLevel1)
-                levelLockManager.UnlockLevel2();
+                levelLockManager.UnlockLevel2();*/
         }
         #endregion
     }

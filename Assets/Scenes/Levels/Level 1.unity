@@ -13984,9 +13984,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 880871770}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: rankingMenu
+      value: 
+      objectReference: {fileID: 927415888}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: nextWaveText
       value: 
       objectReference: {fileID: 1233485539}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: shooting.m_Name
+      value: Shooting
+      objectReference: {fileID: 0}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: shotgunAcquired
       value: 0

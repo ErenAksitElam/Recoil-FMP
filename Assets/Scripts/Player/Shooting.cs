@@ -11,7 +11,7 @@ public class Shooting : MonoBehaviour
     //[SerializeField, DisplayWithoutEdit] private int whatever = 1; As a template for DisplayWithoutEdit in the future
 
     public PlayerControls controls;
-    private InputAction shooting;
+    public InputAction shooting;
     private InputAction restart;
     private InputAction swap;
 
@@ -89,6 +89,10 @@ public class Shooting : MonoBehaviour
 
     public GameObject nextWaveText;
 
+    public RankingMenu rankingMenu;
+
+    [SerializeField, DisplayWithoutEdit] private bool firstShot;
+
     //Player sprite parts
     /*
     public GameObject head;
@@ -142,6 +146,8 @@ public class Shooting : MonoBehaviour
         {
             primaryIndicator.SetActive(true);
         }
+
+        firstShot = true;
     }
 
     private void OnEnable()
@@ -194,8 +200,9 @@ public class Shooting : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        if (swap.IsPressed() && shotgunAcquired && !hasSwapped)
+        if (swap.IsPressed() && shotgunAcquired)
         {
+            /*
             if (currentWeapon == "Pistol")
             {
                 Debug.Log("Swapped to Shotgun");
@@ -215,6 +222,12 @@ public class Shooting : MonoBehaviour
                 recoilForce = pistolRecoilForce;
                 hasSwapped = true;
             }
+            */
+            currentWeapon = "Shotgun";
+            damage = shotgunDamage;
+            shotCooldown = shotgunCooldown;
+            recoilForce = shotgunRecoilForce;
+            ShotgunFiring();
         }
 
         if (isReloading)
@@ -240,6 +253,16 @@ public class Shooting : MonoBehaviour
     {
         if (shooting.IsPressed() && !hasShot && !shootingDisabled)
         {
+            currentWeapon = "Pistol";
+            damage = pistolDamage;
+            shotCooldown = pistolCooldown;
+            recoilForce = pistolRecoilForce;
+
+            if (firstShot)
+            {
+                firstShot = false;
+                rankingMenu.timerActive = true;
+            }
             standingGraphic.SetActive(false);
             slidingGraphic.SetActive(true);
             cooldown = true;
@@ -273,6 +296,69 @@ public class Shooting : MonoBehaviour
                 for (int i = 0; i < bulletAmount; i++)
                 {
                     
+                    //float bulDirY = transform.position.y + Mathf.Sin(angle * Mathf.Deg2Rad);
+                    float bulDirY = (gameObject.transform.eulerAngles.y + angle);
+                    //Debug.Log(bulDirY);
+
+                    bulletInst = Instantiate(bullet, transform.position, Quaternion.Euler(transform.eulerAngles.x, bulDirY, transform.eulerAngles.z));
+
+                    bulletInst.transform.position = transform.position;
+
+                    Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
+
+                    Quaternion quatAngles = Quaternion.Inverse(Quaternion.Euler(new Vector3(transform.eulerAngles.x, -bulDirY + 180, transform.eulerAngles.z)));
+                    bulletInst.transform.rotation = quatAngles;
+                    //bulletInst.transform.eulerAngles = new Vector3(transform.eulerAngles.x, bulDirY, transform.eulerAngles.z);
+
+                    bulletInstRB.AddForce(bulletInst.transform.right * bulletSpeed);
+                    angle += angleStep;
+                }
+
+                //The recoil force
+                rb.AddForce(-gameObject.transform.right * recoilForce);
+            }
+
+            ammo -= 1;
+            Destroy(bulletInst, bulletLife);
+            //Could be added for the shotgun as that would have a low amount of ammo with high knockback and damage
+            if (ammo <= 0 && currentWeapon == "Shotgun")
+                StartCoroutine(ReloadWait());
+            else
+                StartCoroutine(shootingCooldown());
+        }
+    }
+
+    private void ShotgunFiring()
+    {
+        if (!hasShot && !shootingDisabled)
+        {
+            if (firstShot)
+            {
+                firstShot = false;
+                rankingMenu.timerActive = true;
+            }
+            standingGraphic.SetActive(false);
+            slidingGraphic.SetActive(true);
+            cooldown = true;
+            hasShot = true;
+            //Debug.Log("Shooted");
+            //Instantiating the bullet that is fired
+            if (!isReloading)
+            {
+                /*
+                bulletInst = Instantiate(bullet, transform.position, Quaternion.identity);
+                Rigidbody bulletInstRB = bulletInst.GetComponent<Rigidbody>();
+                bulletInstRB.AddForce(gameObject.transform.right * bulletSpeed);
+                bulletInst.transform.rotation = gameObject.transform.rotation;
+                */
+                primaryIndicatorTime = 0;
+                fill.fillAmount = primaryIndicatorTime;
+
+                float angleStep = (endAngle - startAngle) / bulletAmount;
+                float angle = startAngle;
+                for (int i = 0; i < bulletAmount; i++)
+                {
+
                     //float bulDirY = transform.position.y + Mathf.Sin(angle * Mathf.Deg2Rad);
                     float bulDirY = (gameObject.transform.eulerAngles.y + angle);
                     //Debug.Log(bulDirY);
