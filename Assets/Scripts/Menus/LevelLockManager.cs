@@ -14,12 +14,12 @@ public class LevelLockManager : MonoBehaviour
     public void UnlockLevel1()
     {
         level1Unlocked = true;
-        PlayerPrefs.SetInt("UnlockedLevel1", (level1Unlocked ? 1 : 0));
+        PlayerPrefs.SetInt("UnlockedLevel1", 1);
     }
 
     public void UnlockLevel2()
     {
         level2Unlocked = true;
-        PlayerPrefs.SetInt("UnlockedLevel2", (level2Unlocked ? 1 : 0));
+        PlayerPrefs.SetInt("UnlockedLevel2", 1);
     }
 }

@@ -114,6 +114,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5cb92e1ab8772441adc9ee779ab5058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shooting:
+    m_Name: Shooting
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 98c815a5-640a-4010-9460-e091a3abac3c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   ammo: 1
   pistolAmmo: 10
   shotgunAmmo: 2
@@ -152,6 +161,8 @@ MonoBehaviour:
   slidingGraphic: {fileID: 9161935630112747881}
   standingGraphic: {fileID: 6118718127850560645}
   nextWaveText: {fileID: 0}
+  rankingMenu: {fileID: 0}
+  firstShot: 0
 --- !u!135 &1323390511136260876
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -576,7 +587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &607964093283092037
 Transform:
   m_ObjectHideFlags: 0

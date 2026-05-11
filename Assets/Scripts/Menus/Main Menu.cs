@@ -23,4 +23,9 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ClearProgress()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }

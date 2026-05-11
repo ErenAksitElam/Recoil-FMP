@@ -11,8 +11,17 @@ public class LevelSelectMenu : MonoBehaviour
 
     private void Awake()
     {
-        /*
+        DialogueManager.hasSpoken = false;
+        DialogueManager.itEnded = false;
+    }
+
+    private void OnEnable()
+    {
         levelLockManager = FindAnyObjectByType<LevelLockManager>();
+    }
+
+    private void Update()
+    {
         if (levelLockManager.level1Unlocked)
         {
             level1Button.interactable = true;
@@ -29,10 +38,7 @@ public class LevelSelectMenu : MonoBehaviour
         else
         {
             level2Button.interactable = false;
-        }*/
-
-        DialogueManager.hasSpoken = false;
-        DialogueManager.itEnded = false;
+        }
     }
 
     public void Tutorial()
