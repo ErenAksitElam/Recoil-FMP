@@ -15,13 +15,10 @@ public class LevelSelectMenu : MonoBehaviour
         DialogueManager.itEnded = false;
     }
 
-    private void OnEnable()
-    {
-        levelLockManager = FindAnyObjectByType<LevelLockManager>();
-    }
-
     private void Update()
     {
+        levelLockManager = FindAnyObjectByType<LevelLockManager>();
+
         if (levelLockManager.level1Unlocked)
         {
             level1Button.interactable = true;
