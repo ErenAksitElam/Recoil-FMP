@@ -14,6 +14,7 @@ public class Shooting : MonoBehaviour
     public InputAction shooting;
     private InputAction restart;
     private InputAction swap;
+    private InputAction pause;
 
     [SerializeField, DisplayWithoutEdit] private int ammo;
     public int pistolAmmo;
@@ -93,6 +94,8 @@ public class Shooting : MonoBehaviour
 
     [SerializeField, DisplayWithoutEdit] private bool firstShot;
 
+    public PauseMenu pauseMenu;
+
     //Player sprite parts
     /*
     public GameObject head;
@@ -160,6 +163,9 @@ public class Shooting : MonoBehaviour
 
         swap = controls.Player.Swap;
         swap.Enable();
+
+        pause = controls.Player.Pause;
+        pause.Enable();
     }
     
     private void OnDisable()
@@ -169,6 +175,8 @@ public class Shooting : MonoBehaviour
         restart.Disable();
 
         swap.Disable();
+
+        pause.Disable();
     }
     private void Update()
     {
@@ -247,6 +255,11 @@ public class Shooting : MonoBehaviour
 
         head.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turnSpeed);
         body.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turnSpeed);*/
+
+        if (pause.IsPressed())
+        {
+            pauseMenu.Pause();
+        }
     }
 
     private void Firing()

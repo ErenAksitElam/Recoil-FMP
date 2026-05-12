@@ -7,12 +7,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject healthBar;
     public GameObject primaryIndicator;
 
+    public Shooting shooting;
+
     public void Pause()
     {
         gameObject.SetActive(true);
-        timer.SetActive(false);
-        healthBar.SetActive(false);
-        primaryIndicator.SetActive(false);
+        shooting.shootingDisabled = true;
         Time.timeScale = 0;
     }
 
@@ -25,9 +25,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         gameObject.SetActive(false);
-        timer.SetActive(true);
-        healthBar.SetActive(true);
-        primaryIndicator.SetActive(true);
+        shooting.shootingDisabled = false;
         Time.timeScale = 1;
     }
 
