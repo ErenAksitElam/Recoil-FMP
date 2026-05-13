@@ -27654,6 +27654,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4796416448920952776}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: pistolCooldown
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: slidingGraphic
       value: 
       objectReference: {fileID: 4796416448920952775}
