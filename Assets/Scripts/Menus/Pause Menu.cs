@@ -11,9 +11,9 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        Time.timeScale = 0;
         gameObject.SetActive(true);
         shooting.shootingDisabled = true;
-        Time.timeScale = 0;
     }
 
     public void BackToMainMenu()
@@ -24,9 +24,9 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        Time.timeScale = 1;
         gameObject.SetActive(false);
         shooting.shootingDisabled = false;
-        Time.timeScale = 1;
     }
 
     public void Restart()

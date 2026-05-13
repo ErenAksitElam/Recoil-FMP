@@ -9703,6 +9703,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301103341}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1324494090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2577398651852211415, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+  m_PrefabInstance: {fileID: 540415415202007185}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f5b2c33bc3c58448a50d5ce73a8221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1325999979
 GameObject:
   m_ObjectHideFlags: 0
@@ -13979,6 +13990,10 @@ PrefabInstance:
       propertyPath: fill
       value: 
       objectReference: {fileID: 769629827}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1324494090}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: deathScreen
       value: 

@@ -91,7 +91,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        if (itEnded && shooting.shooting.WasReleasedThisFrame())
+        if (itEnded)
         {
             shooting.shootingDisabled = false;
             healthBar.SetActive(true);

@@ -260,6 +260,20 @@ public class Shooting : MonoBehaviour
         {
             pauseMenu.Pause();
         }
+
+        if (shootingDisabled)
+        {
+            shooting.Disable();
+        }
+        else
+        {
+            shooting.Enable();
+        }
+
+        if (Time.timeScale == 0)
+        {
+            shootingDisabled = true;
+        }
     }
 
     private void Firing()
