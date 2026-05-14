@@ -12361,6 +12361,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2027886142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8346079563791175395, guid: 252cbff4e94c4454c9bdd2d7de3d1e14, type: 3}
+  m_PrefabInstance: {fileID: 2027886137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027886138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aed26e709450d24180489c9d26ea568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2062435352
 GameObject:
   m_ObjectHideFlags: 0
@@ -13239,6 +13250,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2577398651852211415, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
+      propertyPath: shooting
+      value: 
+      objectReference: {fileID: 4796416448920952774}
     - target: {fileID: 3090097871572289422, guid: 84aa322b4161ba34f948eba6b82ad7ae, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -13514,6 +13529,10 @@ PrefabInstance:
       propertyPath: nextWaveText
       value: 
       objectReference: {fileID: 37208736}
+    - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 2027886142}
     - target: {fileID: 1189270744626476931, guid: 54dd15bbbd9cf3247984949a03d00f6c, type: 3}
       propertyPath: shotgunAcquired
       value: 1

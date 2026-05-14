@@ -98,6 +98,7 @@ public class DialogueManager : MonoBehaviour
             timer.SetActive(true);
             hasSpoken = true;
             pressClickToContinue.SetActive(false);
+            dialoguePanel.SetActive(false);
         }
     }
 
@@ -132,6 +133,7 @@ public class DialogueManager : MonoBehaviour
 
             if (dialogue[index] == finalLine)
             {
+                dialoguePanel.SetActive(false);
                 healthBar.SetActive(true);
                 timer.SetActive(true);
                 hasSpoken = true;

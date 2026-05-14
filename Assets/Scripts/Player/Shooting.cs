@@ -104,6 +104,10 @@ public class Shooting : MonoBehaviour
     private Quaternion lookRotation;
     public float turnSpeed;*/
 
+    public DialogueManager dialogueManager;
+
+    private bool escapeLetGo = true;
+
     private void Start()
     {
         //rb = GetComponent<Rigidbody>();
@@ -256,9 +260,15 @@ public class Shooting : MonoBehaviour
         head.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turnSpeed);
         body.transform.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * turnSpeed);*/
 
-        if (pause.IsPressed())
+        if (pause.IsPressed() && !dialogueManager.dialoguePanel.activeInHierarchy && !rankingMenu.playerFinished)
         {
-            pauseMenu.Pause();
+            if (pauseMenu.gameObject.activeInHierarchy && escapeLetGo)
+                pauseMenu.Resume();
+            else
+            {
+                pauseMenu.Pause();
+                escapeLetGo = false;
+            }
         }
 
         if (shootingDisabled)
@@ -270,9 +280,21 @@ public class Shooting : MonoBehaviour
             shooting.Enable();
         }
 
-        if (Time.timeScale == 0)
+        
+        if (Time.timeScale == 0 || dialogueManager.dialoguePanel.activeInHierarchy)
         {
             shootingDisabled = true;
+            shooting.Disable();
+        }
+        else
+        {
+            shootingDisabled = false;
+            shooting.Enable();
+        }
+
+        if (pause.WasReleasedThisFrame())
+        {
+            escapeLetGo = true;
         }
     }
 

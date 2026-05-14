@@ -1052,6 +1052,7 @@ MonoBehaviour:
   timer: {fileID: 7894465026354474377}
   healthBar: {fileID: 2400147278590882509}
   primaryIndicator: {fileID: 5984309856374697524}
+  shooting: {fileID: 0}
 --- !u!1 &2400147278590882509
 GameObject:
   m_ObjectHideFlags: 0
