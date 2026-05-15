@@ -20,7 +20,7 @@ public class AuthenticationManager : MonoBehaviour
     [SerializeField] private TMP_Text _infoText;
 
     private bool _isWaitingForSignIn = false;
-
+     
     private Action<string> _showErrorAction = (msg) =>
     {
         ErrorScreen.Show(msg, "OK");
