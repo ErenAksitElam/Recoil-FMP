@@ -23,9 +23,43 @@ public class Leaderboard : MonoBehaviour
     private async void Awake()
     {
         await UnityServices.InitializeAsync();
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        //await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        //await SignInAnonymously();
+        //await AuthenticationService.Instance.SignInWithUnityAsync(PlayerPrefs.GetString("PlayerAccessToken"));
 
-        LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, 0);
+        await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, 0);
+        
+        try
+        {
+            await UnityServices.InitializeAsync();
+
+            //await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            //await AuthenticationService.Instance.SignInWithUnityAsync(PlayerPrefs.GetString("PlayerAccessToken"));
+            //await AuthenticationService.Instance.LinkWithUnityAsync(PlayerPrefs.GetString("PlayerAccessToken"));
+
+            await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, 0);
+
+            Debug.Log("Unity Services Initialized");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogException(e);
+        }
+    }
+
+    async Task SignInAnonymously()
+    {
+        AuthenticationService.Instance.SignedIn += () =>
+        {
+            Debug.Log("Signed in as: " + AuthenticationService.Instance.PlayerId);
+        };
+        AuthenticationService.Instance.SignInFailed += s =>
+        {
+            // Take some action here...
+            Debug.Log(s);
+        };
+
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
     private void Update()
@@ -70,8 +104,8 @@ public class Leaderboard : MonoBehaviour
             foreach (LeaderboardEntry entry in leaderboardScoresPage.Results)
             {
                 Transform leaderboardItem = Instantiate(leaderboardItemPrefab, leaderboardContentParent);
-                leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = entry.PlayerName;
-                leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = entry.Score.ToString();
+                leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = entry.PlayerName;
+                leaderboardItem.GetChild(2).GetComponent<TextMeshProUGUI>().text = entry.Score.ToString();
             }
 
             await Task.Delay(500);
